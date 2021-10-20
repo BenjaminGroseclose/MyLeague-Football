@@ -3,8 +3,14 @@ import './App.css';
 import MyLeagueAppBar from './shared/MyLeagueAppBar';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './theme';
+import { useEffect } from 'react';
+import { InitJsStore } from './database/DatabaseService';
 
 function App() {
+  useEffect(() => {
+    console.log("App.tsx useEffect")
+    InitJsStore();
+  }, []);
 
   function Content() {
     return (

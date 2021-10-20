@@ -1,13 +1,17 @@
-import { DATA_TYPE, Connection, IDataBase } from 'jsstore'
+import { Connection, IDataBase } from 'jsstore'
+import workerInjector from "jsstore/dist/worker_injector";
+import { TeamsTable } from './TeamRepository';
 
-export const connection = new Connection(new Worker('jsstore.worker.js'));
+export const connection = new Connection();
+connection.addPlugin(workerInjector);
+
 export const databaseName = "MyLeagueFootball";
 
 function CreateDatabase() : IDataBase {
   var database: IDataBase = {
     name: databaseName,
     tables: [
-      
+      TeamsTable
     ]
   };
 
