@@ -46,6 +46,6 @@ export class TeamRepository extends BaseRepository {
     })
   };
 
-  public update(team: ITeam)
+  //public update(team: ITeam)
 
 }

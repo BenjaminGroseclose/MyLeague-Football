@@ -14,6 +14,7 @@
     "jsstore": "^4.3.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "typescript": "^4.4.4",
     "web-vitals": "^1.1.2"
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.3.1",
     "electron": "^15.2.0",
     "file-loader": "^6.2.0"
   }

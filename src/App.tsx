@@ -1,42 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
-import MyLeagueAppBar from './shared/MyLeagueAppBar';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './theme';
 import { useEffect } from 'react';
+import { BrowserRouter, Route } from "react-router-dom"
 import { InitJsStore } from './database/DatabaseService';
+import StartPage from './pages/start/Start';
+import HomePage from './pages/home/Home';
 
 function App() {
   useEffect(() => {
-    console.log("App.tsx useEffect")
-    InitJsStore();
+    async function setupDatabase() {
+      await InitJsStore();
+    }
+
+    setupDatabase();
   }, []);
 
   function Content() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div id="App">
+        <Route exact path="/home" component={HomePage} />
+        <Route exact path="/" component={StartPage} />
       </div>
     );
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <MyLeagueAppBar />
-      <Content />
+      <BrowserRouter>
+        <Content />
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
