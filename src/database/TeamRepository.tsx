@@ -46,6 +46,19 @@ export class TeamRepository extends BaseRepository {
     })
   };
 
-  //public update(team: ITeam)
+  public update(team: ITeam): Promise<number | ITeam[]> {
+    return this.Connection.insert({
+      into: this.tableName,
+      upsert: true,
+      values: [team],
+      return: true,
+    })
+  };
 
+  public delete(id: number): Promise<number> {
+    return this.Connection.remove({
+      from: this.tableName,
+      where: { id: id }
+    });
+  }
 }

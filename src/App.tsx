@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from "react-router-dom"
 import { InitJsStore } from './database/DatabaseService';
 import StartPage from './pages/start/Start';
 import HomePage from './pages/home/Home';
+import SettingsPage from './pages/settings/Settings';
 
 function App() {
   useEffect(() => {
@@ -19,6 +20,7 @@ function App() {
   function Content() {
     return (
       <div id="App">
+        <Route exact path="/settings" component={SettingsPage} />
         <Route exact path="/home" component={HomePage} />
         <Route exact path="/" component={StartPage} />
       </div>
