@@ -12,30 +12,30 @@ function StartPage() {
 
   return (
     <div id="StartPage">
-      <Typography variant="h4">
+      <Typography variant="h4" color="secondary">
         MyLeague Football
       </Typography>
       <div className="action-buttons">
         <Link href="home" underline="none">   
-          <Button variant="contained" sx={{ minWidth: 500, margin: '12px auto' }}>
+          <Button variant="outlined" sx={{ minWidth: 500, margin: '12px auto' }}>
             Start
           </Button>
         </Link>    
-        <Button variant="contained" sx={{ minWidth: 500, margin: '12px auto' }}>
+        <Button variant="outlined" sx={{ minWidth: 500, margin: '12px auto' }}>
           Load
         </Button>
         <Link href="settings" underline="none">   
-          <Button variant="contained" sx={{ minWidth: 500, margin: '12px auto' }}>
+          <Button variant="outlined" sx={{ minWidth: 500, margin: '12px auto' }}>
             Settings
           </Button>
         </Link>
-        <Button variant="contained" sx={{ minWidth: 500, margin: '12px auto' }} onClick={() => exit()}>
+        <Button variant="outlined" sx={{ minWidth: 500, margin: '12px auto' }} onClick={() => exit()}>
           Exit
         </Button>
       </div>
 
       <div>
-        <Typography variant="caption">
+        <Typography variant="caption" color="secondary">
           By Ben Groseclose
         </Typography>
       </div>
