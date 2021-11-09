@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="MyLeague.Football.Pages.StartPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyLeague.Football.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#0D2644">
+
+    <ScrollViewer>
+        <StackPanel Orientation="Vertical" Margin="32">
+            <!-- Coach Section -->
+            <TextBlock Text="Coach" Style="{StaticResource SubheaderTextBlockStyle}" />
+            <TextBox x:Name="Coach_FirstName" PlaceholderText="First Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
+            <TextBox x:Name="Coach_LastName" PlaceholderText="Last Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
+            
+            <!-- Franchise -->
+            <ComboBox Header="Franchise" ItemsSource="">
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <PersonPicture ProfilePicture="" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox>
+
+            <Button Content="Create League" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

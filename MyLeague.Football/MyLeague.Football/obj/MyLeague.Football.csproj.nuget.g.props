@@ -13,7 +13,21 @@
     <SourceRoot Include="C:\Users\benja\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.projectreunion.winui\0.8.5\buildTransitive\Microsoft.ProjectReunion.WinUI.props" Condition="Exists('$(NuGetPackageRoot)microsoft.projectreunion.winui\0.8.5\buildTransitive\Microsoft.ProjectReunion.WinUI.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.projectreunion.foundation\0.8.5\build\Microsoft.ProjectReunion.Foundation.props" Condition="Exists('$(NuGetPackageRoot)microsoft.projectreunion.foundation\0.8.5\build\Microsoft.ProjectReunion.Foundation.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.projectreunion.dwrite\0.8.5\build\Microsoft.ProjectReunion.DWrite.props" Condition="Exists('$(NuGetPackageRoot)microsoft.projectreunion.dwrite\0.8.5\build\Microsoft.ProjectReunion.DWrite.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.projectreunion\0.8.5\build\Microsoft.ProjectReunion.props" Condition="Exists('$(NuGetPackageRoot)microsoft.projectreunion\0.8.5\build\Microsoft.ProjectReunion.props')" />
+  </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMaterialDesignThemes Condition=" '$(PkgMaterialDesignThemes)' == '' ">C:\Users\benja\.nuget\packages\materialdesignthemes\4.2.1</PkgMaterialDesignThemes>
+    <PkgMicrosoft_ProjectReunion_WinUI Condition=" '$(PkgMicrosoft_ProjectReunion_WinUI)' == '' ">C:\Users\benja\.nuget\packages\microsoft.projectreunion.winui\0.8.5</PkgMicrosoft_ProjectReunion_WinUI>
+    <PkgMicrosoft_ProjectReunion Condition=" '$(PkgMicrosoft_ProjectReunion)' == '' ">C:\Users\benja\.nuget\packages\microsoft.projectreunion\0.8.5</PkgMicrosoft_ProjectReunion>
+    <PkgCommunityToolkit_WinUI_UI_Controls_Primitives Condition=" '$(PkgCommunityToolkit_WinUI_UI_Controls_Primitives)' == '' ">C:\Users\benja\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.0.3</PkgCommunityToolkit_WinUI_UI_Controls_Primitives>
+    <PkgCommunityToolkit_WinUI_UI_Controls_Media Condition=" '$(PkgCommunityToolkit_WinUI_UI_Controls_Media)' == '' ">C:\Users\benja\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.0.3</PkgCommunityToolkit_WinUI_UI_Controls_Media>
+    <PkgCommunityToolkit_WinUI_UI_Controls_Core Condition=" '$(PkgCommunityToolkit_WinUI_UI_Controls_Core)' == '' ">C:\Users\benja\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.0.3</PkgCommunityToolkit_WinUI_UI_Controls_Core>
+    <PkgCommunityToolkit_WinUI_UI_Controls_Markdown Condition=" '$(PkgCommunityToolkit_WinUI_UI_Controls_Markdown)' == '' ">C:\Users\benja\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.0.3</PkgCommunityToolkit_WinUI_UI_Controls_Markdown>
+    <PkgCommunityToolkit_WinUI_UI_Controls_Layout Condition=" '$(PkgCommunityToolkit_WinUI_UI_Controls_Layout)' == '' ">C:\Users\benja\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.0.3</PkgCommunityToolkit_WinUI_UI_Controls_Layout>
+    <PkgCommunityToolkit_WinUI_UI_Controls_Input Condition=" '$(PkgCommunityToolkit_WinUI_UI_Controls_Input)' == '' ">C:\Users\benja\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.0.3</PkgCommunityToolkit_WinUI_UI_Controls_Input>
+    <PkgCommunityToolkit_WinUI_UI_Controls_DataGrid Condition=" '$(PkgCommunityToolkit_WinUI_UI_Controls_DataGrid)' == '' ">C:\Users\benja\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.0.3</PkgCommunityToolkit_WinUI_UI_Controls_DataGrid>
   </PropertyGroup>
 </Project>

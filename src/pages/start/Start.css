@@ -1,9 +1,0 @@
-#StartPage {
-  text-align: center;
-}
-
-#StartPage .action-buttons {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-}
