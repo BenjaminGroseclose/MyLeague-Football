@@ -14,9 +14,10 @@
             <TextBlock Text="Coach" Style="{StaticResource SubheaderTextBlockStyle}" />
             <TextBox x:Name="Coach_FirstName" PlaceholderText="First Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
             <TextBox x:Name="Coach_LastName" PlaceholderText="Last Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
-            
-            <!-- Franchise -->
-            <ComboBox Header="Franchise" ItemsSource="">
+
+            <!-- Franchise Section -->
+            <TextBlock Text="Franchise" Style="{StaticResource SubheaderTextBlockStyle}" />
+            <ComboBox ItemsSource="">
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <PersonPicture ProfilePicture="" />

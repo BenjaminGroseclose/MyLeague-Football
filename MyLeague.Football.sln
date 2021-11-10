@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLeague.Football", "MyLeag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLeague.Football.Data", "MyLeague.Football.Data\MyLeague.Football.Data.csproj", "{46B67218-F064-4405-A799-5616A54BBF72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLeague.Football.Core", "MyLeague.Football.Core\MyLeague.Football.Core.csproj", "{F592AA3C-21CE-4375-A5E3-4117CAB550A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,22 @@ Global
 		{46B67218-F064-4405-A799-5616A54BBF72}.Release|x64.Build.0 = Release|Any CPU
 		{46B67218-F064-4405-A799-5616A54BBF72}.Release|x86.ActiveCfg = Release|Any CPU
 		{46B67218-F064-4405-A799-5616A54BBF72}.Release|x86.Build.0 = Release|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Debug|arm64.Build.0 = Debug|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Debug|x64.Build.0 = Debug|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Debug|x86.Build.0 = Debug|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Release|arm64.ActiveCfg = Release|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Release|arm64.Build.0 = Release|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Release|x64.ActiveCfg = Release|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Release|x64.Build.0 = Release|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Release|x86.ActiveCfg = Release|Any CPU
+		{F592AA3C-21CE-4375-A5E3-4117CAB550A9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

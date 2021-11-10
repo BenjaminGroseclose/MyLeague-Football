@@ -1,0 +1,258 @@
+[
+  {
+    "Region": "Arizona",
+    "Name": "Cardinals",
+    "Abbrevation": "ARI",
+    "Logo": "arizona-cardinals.svg",
+    "PrimaryColor": "97233F",
+    "SecondaryColor": "000000"
+  },
+  {
+    "Region": "Atlanta",
+    "Name": "Falcons",
+    "Abbrevation": "ATL",
+    "Logo": "atlanta-falcons.svg",
+    "PrimaryColor": "A71930",
+    "SecondaryColor": "000000"
+  },
+  {
+    "Region": "Baltimore",
+    "Name": "Ravens",
+    "Abbrevation": "BAL",
+    "Logo": "baltimore-ravens.svg",
+    "PrimaryColor": "241773",
+    "SecondaryColor": "9E7C0C"
+  },
+  {
+    "Region": "Buffalo",
+    "Name": "Bills",
+    "Abbrevation": "BUF",
+    "Logo": "buffalo-bills.svg",
+    "PrimaryColor": "00338D",
+    "SecondaryColor": "C60C30"
+  },
+  {
+    "Region": "Carolina",
+    "Name": "Panthers",
+    "Abbrevation": "CAR",
+    "Logo": "carolina-panthers.svg",
+    "PrimaryColor": "0085CA",
+    "SecondaryColor": "000000"
+  },
+  {
+    "Region": "Chicago",
+    "Name": "Bears",
+    "Abbrevation": "CHI",
+    "Logo": "chicago-bears.svg",
+    "PrimaryColor": "0B162A",
+    "SecondaryColor": "C83803"
+  },
+  {
+    "Region": "Cincinnati",
+    "Name": "Bengals",
+    "Abbrevation": "CIN",
+    "Logo": "cincinnati-bengals.svg",
+    "PrimaryColor": "FB4F14",
+    "SecondaryColor": "000000"
+  },
+  {
+    "Region": "Cleveland",
+    "Name": "Browns",
+    "Abbrevation": "CIN",
+    "Logo": "cleveland-browns.svg",
+    "PrimaryColor": "FB4F14",
+    "SecondaryColor": "22150C"
+  },
+  {
+    "Region": "Dallas",
+    "Name": "Cowboys",
+    "Abbrevation": "DAL",
+    "Logo": "dallas-cowboys.svg",
+    "PrimaryColor": "002244",
+    "SecondaryColor": "B0B7BC"
+  },
+  {
+    "Region": "Denver",
+    "Name": "Broncos",
+    "Abbrevation": "DEN",
+    "Logo": "denver-broncos.svg",
+    "PrimaryColor": "002244",
+    "SecondaryColor": "FB4F14"
+  },
+  {
+    "Region": "Detroit",
+    "Name": "Lions",
+    "Abbrevation": "DET",
+    "Logo": "detroit-lions.svg",
+    "PrimaryColor": "005A8B",
+    "SecondaryColor": "B0B7BC"
+  },
+  {
+    "Region": "Green Bay",
+    "Name": "Packers",
+    "Abbrevation": "GB",
+    "Logo": "green-bay-packers.svg",
+    "PrimaryColor": "203731",
+    "SecondaryColor": "FFB612"
+  },
+  {
+    "Region": "Houston",
+    "Name": "Texans",
+    "Abbrevation": "HOU",
+    "Logo": "houston-texans.svg",
+    "PrimaryColor": "03202F",
+    "SecondaryColor": "A71930"
+  },
+  {
+    "Region": "Indianapolis",
+    "Name": "Colts",
+    "Abbrevation": "IND",
+    "Logo": "indianapolis-colts.svg",
+    "PrimaryColor": "002C5F",
+    "SecondaryColor": "A5ACAF"
+  },
+  {
+    "Region": "Jacksonville",
+    "Name": "Jaguars",
+    "Abbrevation": "JAX",
+    "Logo": "jacksonville-jaguars.svg",
+    "PrimaryColor": "006778",
+    "SecondaryColor": "000000"
+  },
+  {
+    "Region": "Kansas City",
+    "Name": "Chiefs",
+    "Abbrevation": "KC",
+    "Logo": "kansas-city-chiefs.svg",
+    "PrimaryColor": "E31837",
+    "SecondaryColor": "FFB612"
+  },
+  {
+    "Region": "Los Angeles",
+    "Name": "Chargers",
+    "Abbrevation": "LAC",
+    "Logo": "los-angeles-chargers.svg",
+    "PrimaryColor": "0073CF",
+    "SecondaryColor": "FFB612"
+  },
+  {
+    "Region": "Los Angeles",
+    "Name": "Rams",
+    "Abbrevation": "LAR",
+    "Logo": "los-angeles-rams.svg",
+    "PrimaryColor": "002244",
+    "SecondaryColor": "B3995D"
+  },
+  {
+    "Region": "Miami",
+    "Name": "Dolphins",
+    "Abbrevation": "MIA",
+    "Logo": "miami-dolphins.svg",
+    "PrimaryColor": "008E97",
+    "SecondaryColor": "F58220"
+  },
+  {
+    "Region": "Minnesota",
+    "Name": "Vikings",
+    "Abbrevation": "MIN",
+    "Logo": "minnesota-vikings.svg",
+    "PrimaryColor": "4F2683",
+    "SecondaryColor": "FFC62F"
+  },
+  {
+    "Region": "New England",
+    "Name": "Patriots",
+    "Abbrevation": "NE",
+    "Logo": "new-england-patriots.svg",
+    "PrimaryColor": "002244",
+    "SecondaryColor": "C60C30"
+  },
+  {
+    "Region": "New Orleans",
+    "Name": "Saints",
+    "Abbrevation": "NO",
+    "Logo": "new-orleans-saints.svg",
+    "PrimaryColor": "9F8958",
+    "SecondaryColor": "000000"
+  },
+  {
+    "Region": "New York",
+    "Name": "Giants",
+    "Abbrevation": "NYG",
+    "Logo": "new-york-giants.svg",
+    "PrimaryColor": "0B2265",
+    "SecondaryColor": "A71930"
+  },
+  {
+    "Region": "New York",
+    "Name": "Jets",
+    "Abbrevation": "NO",
+    "Logo": "new-york-jets.svg",
+    "PrimaryColor": "203731",
+    "SecondaryColor": "FFFFFF"
+  },
+  {
+    "Region": "Oakland",
+    "Name": "Raiders",
+    "Abbrevation": "OAK",
+    "Logo": "oakland-raiders.svg",
+    "PrimaryColor": "A5ACAF",
+    "SecondaryColor": "000000"
+  },
+  {
+    "Region": "Philadelphia",
+    "Name": "Eagles",
+    "Abbrevation": "PHI",
+    "Logo": "philadelphia-eagles.svg",
+    "PrimaryColor": "004953",
+    "SecondaryColor": "A5ACAF"
+  },
+  {
+    "Region": "Pittsburgh",
+    "Name": "Steelers",
+    "Abbrevation": "PIT",
+    "Logo": "pittsburgh-steelers.svg",
+    "PrimaryColor": "000000",
+    "SecondaryColor": "FFB612"
+  },
+  {
+    "Region": "San Francisco",
+    "Name": "49ers",
+    "Abbrevation": "SF",
+    "Logo": "san-francisco-49ers.svg",
+    "PrimaryColor": "AA0000",
+    "SecondaryColor": "B3995D"
+  },
+  {
+    "Region": "Seattle",
+    "Name": "Seahawks",
+    "Abbrevation": "SEA",
+    "Logo": "seattle-seahawks.svg",
+    "PrimaryColor": "002244",
+    "SecondaryColor": "69BE28"
+  },
+  {
+    "Region": "Tampa Bay",
+    "Name": "Buccaneers",
+    "Abbrevation": "TB",
+    "Logo": "tampa-bay-buccaneers.svg",
+    "PrimaryColor": "D50A0A",
+    "SecondaryColor": "34302B"
+  },
+  {
+    "Region": "Tennessee",
+    "Name": "Titans",
+    "Abbrevation": "TEN",
+    "Logo": "tennessee-titans.svg",
+    "PrimaryColor": "002244",
+    "SecondaryColor": "4B92DB"
+  },
+  {
+    "Region": "Washington",
+    "Name": "Redskins",
+    "Abbrevation": "WAS",
+    "Logo": "washington-redskins.svg",
+    "PrimaryColor": "773141",
+    "SecondaryColor": "FFB612"
+  }
+]
