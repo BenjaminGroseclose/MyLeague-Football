@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLeague.Football", "MyLeag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLeague.Football.Data", "MyLeague.Football.Data\MyLeague.Football.Data.csproj", "{46B67218-F064-4405-A799-5616A54BBF72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLeague.Football.Core", "MyLeague.Football.Core\MyLeague.Football.Core.csproj", "{F592AA3C-21CE-4375-A5E3-4117CAB550A9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

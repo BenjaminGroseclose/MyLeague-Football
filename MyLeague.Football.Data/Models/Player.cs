@@ -1,14 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AutoMapper;
+using MyLeague.Football.Data.Generators;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyLeague.Football.Data.Models
 {
-    public class Player : BaseDataModel
+    public class Player
     {
+        public Player() { }
+        public Player(string firstName, string lastName, string college, InitialPlayerModel initialPlayer, IMapper mapper)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.DateOfBirth = DateTime.Parse(initialPlayer.DateOfBirth);
+            this.Position = this.DeterminePosition(initialPlayer.Position);
+            this.College = college;
+            this.FranchiseId = initialPlayer.TeamId;
+            this.Experience = initialPlayer.Experience;
+            this.JerseyNumber = initialPlayer.JerseyNumber;
+            this.PlayerAttributes = mapper.Map<PlayerAttributes>(initialPlayer);
+        }
+
+        [Key]
+        public int Id { get; set; }
+
         /// <summary>
         /// Gets or sets the player's first name
         /// </summary>
@@ -37,7 +53,7 @@ namespace MyLeague.Football.Data.Models
         /// <summary>
         /// Gets or sets the date the player was drafted
         /// </summary>
-        public DateTime DateDrafted { get; set; }
+        public int Experience { get; set; }
         
         public int? FranchiseId { get; set; }
 
@@ -48,21 +64,10 @@ namespace MyLeague.Football.Data.Models
 
         public Contract Contract { get; set; }
 
+        public int PlayerAttributeId { get; set; }
+
+        [ForeignKey("PlayerAttributeId")]
         public PlayerAttributes PlayerAttributes { get; set; }
-
-        public string Experience(DateTime currentDate)
-        {
-            int years = currentDate.Year - DateDrafted.Year;
-
-            if (years == 0)
-            {
-                return "R";
-            }
-            else
-            {
-                return years.ToString();
-            }
-        }
 
         /// <summary>
         /// Gets or sets the player's age
@@ -73,6 +78,35 @@ namespace MyLeague.Football.Data.Models
         }
 
         public string FullName() => $"{FirstName}, {LastName}";
+
+        private Position DeterminePosition(string position)
+        {
+            switch(position)
+            {
+                case "QB": return Position.QB;
+                case "RB": return Position.RB;
+                case "FB": return Position.FB;
+                case "WR": return Position.WR;
+                case "TE": return Position.TE;
+                case "LT": return Position.LT;
+                case "LG": return Position.LG;
+                case "C": return Position.C;
+                case "RG": return Position.RG;
+                case "RT": return Position.RT;
+                case "LE": return Position.LE;
+                case "DT": return Position.DT;
+                case "RE": return Position.RE;
+                case "LOLB": return Position.LOLB;
+                case "MLB": return Position.MLB;
+                case "ROLB": return Position.ROLB;
+                case "CB": return Position.CB;
+                case "FS": return Position.FS;
+                case "SS": return Position.SS;
+                case "K": return Position.K;
+                case "P": return Position.P;
+                default: throw new Exception($"Unable to parse position: {position}");
+            }
+        }
     }
 }
 

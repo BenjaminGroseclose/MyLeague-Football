@@ -25,59 +25,10 @@ namespace MyLeague.Football
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        public IEnumerable<NavigationViewItemBase> NavigationViewItems { get; set; }
-
         public MainWindow()
         {
             this.InitializeComponent();
             this.Title = "MyLeague Football";
-
-            this.NavigationViewItems = this.GetInitialNavigationItems();
-        }
-
-        private void NavigationView_Loaded(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(typeof(StartPage), this);
-        }
-
-        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
-        {
-            if (args.InvokedItemContainer != null)
-            {
-                string tag = args.InvokedItemContainer.Tag.ToString();
-                switch(tag)
-                {
-                    case Constants.NavigationTags.START:
-                        if (ContentFrame.CurrentSourcePageType != typeof(StartPage))
-                        {
-                            ContentFrame.Navigate(typeof(StartPage), this);
-                        }
-                        break;
-
-                    case Constants.NavigationTags.SETTINGS:
-                        if (ContentFrame.CurrentSourcePageType != typeof(SettingsPage))
-                        {
-                            ContentFrame.Navigate(typeof(SettingsPage), this);
-                        }
-                        break;
-                }
-            }
-        }
-
-        private void HandleOnBack(NavigationView sender, NavigationViewBackRequestedEventArgs args)
-        {
-            if (ContentFrame.CanGoBack)
-            {
-                ContentFrame.GoBack();
-            }
-        }
-
-        private List<NavigationViewItemBase> GetInitialNavigationItems()
-        {
-            return new List<NavigationViewItemBase>
-            {
-                new NavigationViewItem { Tag = Constants.NavigationTags.START, Content = "Create League", Icon = new SymbolIcon(Symbol.Home) }
-            };
         }
     }
 }

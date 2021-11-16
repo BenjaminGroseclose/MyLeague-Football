@@ -7,26 +7,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+    <ScrollViewer Background="#0D2644">
+        <StackPanel Orientation="Vertical" Margin="32">
+            <!-- Coach Section -->
+            <TextBlock Text="Coach" Style="{StaticResource SubheaderTextBlockStyle}" />
+            <TextBox x:Name="Coach_FirstName" PlaceholderText="First Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
+            <TextBox x:Name="Coach_LastName" PlaceholderText="Last Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
 
-        <NavigationView x:Name="Navigation"
-                        Grid.Row="1"
-                        Loaded="NavigationView_Loaded"
-                        ItemInvoked="NavigationView_ItemInvoked"
-                        BackRequested="HandleOnBack"
-                        MenuItemsSource="{x:Bind NavigationViewItems, Mode=OneWay}"
-                        IsBackEnabled="{Binding ElementName=ContentFrame, Path=CanGoBack}">
+            <!-- Franchise Section -->
+            <TextBlock Text="Franchise" Style="{StaticResource SubheaderTextBlockStyle}" />
+            <ComboBox ItemsSource="">
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <PersonPicture ProfilePicture="" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox>
 
-            <ScrollViewer>
-                <Frame x:Name="ContentFrame"></Frame>
-            </ScrollViewer>
-            
-        </NavigationView>
-        
-    </Grid>
-    
+            <Button Content="Create League" />
+        </StackPanel>
+    </ScrollViewer>
+
 </Window>

@@ -57,18 +57,37 @@ namespace MyLeague.Football
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             // Create DB
-            string dbPath = await this.SetupDatabase();
+            StorageFile dbFile = await this.SetupDatabase();
 
-            Services = this.ConfigureServices(dbPath);
+            Services = this.ConfigureServices(dbFile.Path);
 
-            // Migrate DB
+            bool hasGameBeenCreated = false;
+
             using (var scope = Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<MyLeagueFootballContext>();
-                db.Database.Migrate();
+
+                // If the file has been created in the last 2 mins
+                var dbFileCreatedDifference = DateTime.Now - dbFile.DateCreated;
+                if (dbFileCreatedDifference < TimeSpan.FromMinutes(2))
+                {
+                    DatabaseInitializer.CreateTables(db);
+                }
+
+                hasGameBeenCreated = await DatabaseInitializer.Init(db);
             }
 
-            window = new MainWindow();
+            Window window = null;
+
+            if (hasGameBeenCreated)
+            {
+                window = new GameWindow();
+            }
+            else
+            {
+                window = new MainWindow();
+            }
+
             window.Activate();
         }
 
@@ -84,10 +103,10 @@ namespace MyLeague.Football
             return services.BuildServiceProvider();
         }
 
-        private async Task<string> SetupDatabase()
+        private async Task<StorageFile> SetupDatabase()
         {
-            var dbFile = await ApplicationData.Current.LocalFolder.CreateFileAsync("MyLeague.db", CreationCollisionOption.OpenIfExists);
-            return dbFile.Path;
+            StorageFile dbFile = await ApplicationData.Current.LocalFolder.CreateFileAsync("MyLeague.db", CreationCollisionOption.OpenIfExists);
+            return dbFile;
         }
     }
 }

@@ -4,7 +4,7 @@
     {
         public class NavigationTags
         {
-            public const string START = "start";
+            public const string HOME = "HOME";
             public const string SETTINGS = "Settings";
         }
     }
