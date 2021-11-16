@@ -11,13 +11,15 @@
     <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="GameWindow.xaml" />
+    <None Remove="Pages\Game\HomePage.xaml" />
     <None Remove="Pages\SettingsPage.xaml" />
-    <None Remove="Pages\StartPage.xaml" />
     <None Remove="Styles\Page.xaml" />
     <None Remove="Styles\Theme.xaml" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="7.0.3" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.11" />
@@ -35,18 +37,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Pages\StartPage.xaml">
+    <Folder Include="Assets\TeamLogos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\MyLeague.Football.Data\MyLeague.Football.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Pages\Game\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\TeamLogos\" />
-    <Folder Include="Pages\Game\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\MyLeague.Football.Data\MyLeague.Football.Data.csproj" />
+    <Page Update="GameWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>

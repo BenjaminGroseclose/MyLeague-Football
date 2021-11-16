@@ -6,11 +6,38 @@
     <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
     <UseWinUI>true</UseWinUI>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Generators\NewFolder\**" />
+    <EmbeddedResource Remove="Generators\NewFolder\**" />
+    <None Remove="Generators\NewFolder\**" />
+    <Page Remove="Generators\NewFolder\**" />
+  </ItemGroup>
 
   <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="10.1.1" />
+      <PackageReference Include="CsvHelper" Version="27.1.1" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.11" />
       <PackageReference Include="Microsoft.ProjectReunion" Version="0.8.5" />
       <PackageReference Include="Microsoft.ProjectReunion.Foundation" Version="0.8.5" />
       <PackageReference Include="Microsoft.ProjectReunion.WinUI" Version="0.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Generators\CSV\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Generators\CSV\playerData.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Generators\Json\colleges.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Generators\Json\firstNames.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Generators\Json\lastNames.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

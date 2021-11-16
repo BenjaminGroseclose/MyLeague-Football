@@ -2,9 +2,11 @@
 
 namespace MyLeague.Football.Data.Models
 {
-    public class Contract
+    public class User
     {
         [Key]
         public int Id { get; set; }
+        public bool DatabaseInitialize { get; set; }
+        public bool GameStarted { get; set; }
     }
 }
