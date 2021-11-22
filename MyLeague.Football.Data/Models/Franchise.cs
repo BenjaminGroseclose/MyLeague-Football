@@ -8,7 +8,15 @@ namespace MyLeague.Football.Data.Models
         /// <summary>
         /// Used to create an inital franchise
         /// </summary>
-        public Franchise(int id, string region, string name, string abbrevation, string logo, string primaryColor, string secondaryColor)
+        public Franchise(int id,
+                         string region,
+                         string name,
+                         string abbrevation,
+                         string logo,
+                         string primaryColor,
+                         string secondaryColor,
+                         Conference conference,
+                         Division division)
         {
             this.Id = id;
             this.Region = region;
@@ -17,6 +25,8 @@ namespace MyLeague.Football.Data.Models
             this.Logo = logo;
             this.PrimaryColor = primaryColor;
             this.SecondaryColor = secondaryColor;
+            this.Conference = conference;
+            this.Division = division;
         }
 
         [Key]
@@ -58,11 +68,29 @@ namespace MyLeague.Football.Data.Models
         /// </summary>
         public string SecondaryColor { get; private set; }
 
+        public Conference Conference { get; private set; }
+
+        public Division Division { get; private set; }
+
         public IEnumerable<Player> Players { get; private set; }
 
         /// <summary>
         /// Gets the full name of the franchise
         /// </summary>
         public string FullName() => $"{Region} {Name}";
+    }
+
+    public enum Conference
+    {
+        AFC,
+        NFC
+    }
+
+    public enum Division
+    {
+        NORTH, 
+        EAST,
+        SOUTH,
+        WEST
     }
 }

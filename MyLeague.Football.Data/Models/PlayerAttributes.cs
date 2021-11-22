@@ -7,27 +7,9 @@ namespace MyLeague.Football.Data.Models
     {
         public PlayerAttributes() { }
 
-        public PlayerAttributes(InitialPlayerModel initialPlayer)
-        {
-            this.Speed = initialPlayer.Speed;
-            this.Acceleration = initialPlayer.Acceleration;
-            this.Strength = initialPlayer.Strength;
-            this.Awareness = initialPlayer.Awareness;
-            this.Agility = initialPlayer.Agility;
-            this.Stamina = initialPlayer.Stamina;
-            this.Injury = initialPlayer.Injury;
-            this.Toughness = initialPlayer.Toughness;
-            this.Jumping = initialPlayer.Jumping;
-            this.HitPower = initialPlayer.HitPower;
-            this.Tackle = initialPlayer.Tackle;
-            this.Pursuit = initialPlayer.Pursuit;
-            this.PowerMove = initialPlayer.PowerMoves;
-            this.FinesseMove = initialPlayer.FinesseMoves;
-            this.BlockShedding = initialPlayer.BlockShedding;
-        }
-
         [Key]
         public int Id { get; set; }
+        public int Overall { get; set; }
         public int Speed { get; set; }
         public int Acceleration { get; set; }
         public int Strength { get; set; }

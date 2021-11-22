@@ -5,6 +5,9 @@
     <None Update="App.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Update="Pages\CreateLeaguePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\Game\HomePage.xaml">
       <SubType>Designer</SubType>
     </Page>

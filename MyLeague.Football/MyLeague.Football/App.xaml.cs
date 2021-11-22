@@ -9,6 +9,9 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
 using MyLeague.Football.Data;
+using MyLeague.Football.Data.Repository.Implementations;
+using MyLeague.Football.Data.Repository.Interfaces;
+using MyLeague.Football.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -67,9 +70,9 @@ namespace MyLeague.Football
             {
                 var db = scope.ServiceProvider.GetRequiredService<MyLeagueFootballContext>();
 
-                // If the file has been created in the last 2 mins
+                // If the file has been created in the last 1 mins
                 var dbFileCreatedDifference = DateTime.Now - dbFile.DateCreated;
-                if (dbFileCreatedDifference < TimeSpan.FromMinutes(2))
+                if (dbFileCreatedDifference < TimeSpan.FromMinutes(1))
                 {
                     DatabaseInitializer.CreateTables(db);
                 }
@@ -99,6 +102,12 @@ namespace MyLeague.Football
             {
                 options.UseSqlite($"Data Source={dbPath}");
             });
+
+            // Repositories
+            services.AddTransient<IFranchiseRepository, FranchiseRepository>();
+
+            // ViewModels
+            services.AddTransient<CreateLeagueViewModel>();
 
             return services.BuildServiceProvider();
         }

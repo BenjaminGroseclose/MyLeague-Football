@@ -15,59 +15,13 @@ namespace MyLeague.Football.Data
         {
         }
 
-        /*
-        /// <summary>
-        /// Automatically handles <see cref="BaseDataModel.Created"/> and <see cref="BaseDataModel.Updated"/>
-        /// and then call base <see cref="SaveChanges"/>
-        /// </summary>
-        /// <returns>number of rows affected</returns>
-        public override int SaveChanges()
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var entries = ChangeTracker
-            .Entries()
-            .Where(e => e.Entity is BaseDataModel && (
-                    e.State == EntityState.Added
-                    || e.State == EntityState.Modified));
+            modelBuilder.Entity<Franchise>()
+                .HasMany(x => x.Players);
 
-            foreach (var entityEntry in entries)
-            {
-                ((BaseDataModel)entityEntry.Entity).Updated = DateTime.Now;
-
-                if (entityEntry.State == EntityState.Added)
-                {
-                    ((BaseDataModel)entityEntry.Entity).Created = DateTime.Now;
-                }
-            }
-
-            return base.SaveChanges();
+            base.OnModelCreating(modelBuilder);
         }
-
-        /// <summary>
-        /// Automatically handles <see cref="BaseDataModel.Created"/> and <see cref="BaseDataModel.Updated"/>
-        /// and then call base <see cref="SaveChangesAsync"/>
-        /// </summary>
-        /// <returns>number of rows affected</returns>
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            var entries = ChangeTracker
-            .Entries()
-            .Where(e => e.Entity is BaseDataModel && (
-                    e.State == EntityState.Added
-                    || e.State == EntityState.Modified));
-
-            foreach (var entityEntry in entries)
-            {
-                ((BaseDataModel)entityEntry.Entity).Updated = DateTime.Now;
-
-                if (entityEntry.State == EntityState.Added)
-                {
-                    ((BaseDataModel)entityEntry.Entity).Created = DateTime.Now;
-                }
-            }
-
-            return base.SaveChangesAsync(cancellationToken);
-        }
-        */
 
         public DbSet<User> Users { get; set; }
         public DbSet<Franchise> Franchises { get; set; }

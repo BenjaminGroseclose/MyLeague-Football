@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows10.0.19041.0</TargetFramework>
@@ -12,6 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="GameWindow.xaml" />
+    <None Remove="Pages\CreateLeaguePage.xaml" />
     <None Remove="Pages\Game\HomePage.xaml" />
     <None Remove="Pages\SettingsPage.xaml" />
     <None Remove="Styles\Page.xaml" />
@@ -42,6 +43,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\MyLeague.Football.Data\MyLeague.Football.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Pages\CreateLeaguePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>

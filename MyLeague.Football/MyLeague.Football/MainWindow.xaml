@@ -7,25 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <ScrollViewer Background="#0D2644">
-        <StackPanel Orientation="Vertical" Margin="32">
-            <!-- Coach Section -->
-            <TextBlock Text="Coach" Style="{StaticResource SubheaderTextBlockStyle}" />
-            <TextBox x:Name="Coach_FirstName" PlaceholderText="First Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
-            <TextBox x:Name="Coach_LastName" PlaceholderText="Last Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
-
-            <!-- Franchise Section -->
-            <TextBlock Text="Franchise" Style="{StaticResource SubheaderTextBlockStyle}" />
-            <ComboBox ItemsSource="">
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <PersonPicture ProfilePicture="" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox>
-
-            <Button Content="Create League" />
-        </StackPanel>
-    </ScrollViewer>
+    <Frame x:Name="ContentFrame" />
 
 </Window>
