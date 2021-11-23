@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyLeague.Football.Data.Models
 {
@@ -77,7 +78,8 @@ namespace MyLeague.Football.Data.Models
         /// <summary>
         /// Gets the full name of the franchise
         /// </summary>
-        public string FullName() => $"{Region} {Name}";
+        [NotMapped]
+        public string FullName => $"{Region} {Name}";
     }
 
     public enum Conference

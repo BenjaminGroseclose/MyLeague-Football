@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm;
-using CommunityToolkit.Common;
-using CommunityToolkit.WinUI;
+﻿using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using MyLeague.Football.Data.Repository.Interfaces;
 using MyLeague.Football.Data.Models;
+using CommunityToolkit.Mvvm.DependencyInjection;
 
 namespace MyLeague.Football.ViewModels
 {
     public class CreateLeagueViewModel : ObservableRecipient
     {
-        private readonly IFranchiseRepository franchiseRepository;
-        public CreateLeagueViewModel(IFranchiseRepository franchiseRepository)
+        private readonly IFranchiseRepository franchiseRepository = Ioc.Default.GetService<IFranchiseRepository>();
+        public CreateLeagueViewModel()
         {
-            this.franchiseRepository = franchiseRepository;
-
             this.Franchises = this.franchiseRepository.GetAll(true);
         }
 

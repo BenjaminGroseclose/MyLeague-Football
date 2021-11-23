@@ -31,53 +31,6 @@ namespace MyLeague.Football
         public GameWindow()
         {
             this.InitializeComponent();
-
-            this.NavigationViewItems = this.GetInitialNavigationItems();
-        }
-
-        private void NavigationView_Loaded(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(typeof(HomePage), this);
-        }
-
-        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
-        {
-            if (args.InvokedItemContainer != null)
-            {
-                string tag = args.InvokedItemContainer.Tag.ToString();
-                switch (tag)
-                {
-                    case Constants.NavigationTags.HOME:
-                        if (ContentFrame.CurrentSourcePageType != typeof(HomePage))
-                        {
-                            ContentFrame.Navigate(typeof(HomePage), this);
-                        }
-                        break;
-
-                    case Constants.NavigationTags.SETTINGS:
-                        if (ContentFrame.CurrentSourcePageType != typeof(SettingsPage))
-                        {
-                            ContentFrame.Navigate(typeof(SettingsPage), this);
-                        }
-                        break;
-                }
-            }
-        }
-
-        private void HandleOnBack(NavigationView sender, NavigationViewBackRequestedEventArgs args)
-        {
-            if (ContentFrame.CanGoBack)
-            {
-                ContentFrame.GoBack();
-            }
-        }
-
-        private List<NavigationViewItemBase> GetInitialNavigationItems()
-        {
-            return new List<NavigationViewItemBase>
-            {
-                new NavigationViewItem { Tag = Constants.NavigationTags.HOME, Content = "Home", Icon = new SymbolIcon(Symbol.Home) }
-            };
         }
     }
 }

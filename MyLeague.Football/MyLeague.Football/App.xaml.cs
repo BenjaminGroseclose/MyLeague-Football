@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CommunityToolkit.Mvvm.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -34,14 +35,10 @@ namespace MyLeague.Football
     /// </summary>
     public partial class App : Application
     {
-        private Window window;
-
         /// <summary>
         /// Gets the current <see cref="App"/> instance in use
         /// </summary>
         public new static App Current => (App)Application.Current;
-
-        public IServiceProvider Services { get; private set; }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -62,11 +59,11 @@ namespace MyLeague.Football
             // Create DB
             StorageFile dbFile = await this.SetupDatabase();
 
-            Services = this.ConfigureServices(dbFile.Path);
+            this.ConfigureServices(dbFile.Path);
 
             bool hasGameBeenCreated = false;
 
-            using (var scope = Services.CreateScope())
+            using (var scope = Ioc.Default.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<MyLeagueFootballContext>();
 
@@ -94,7 +91,7 @@ namespace MyLeague.Football
             window.Activate();
         }
 
-        private IServiceProvider ConfigureServices(string dbPath)
+        private void ConfigureServices(string dbPath)
         {
             var services = new ServiceCollection();
 
@@ -109,7 +106,7 @@ namespace MyLeague.Football
             // ViewModels
             services.AddTransient<CreateLeagueViewModel>();
 
-            return services.BuildServiceProvider();
+            Ioc.Default.ConfigureServices(services.BuildServiceProvider());
         }
 
         private async Task<StorageFile> SetupDatabase()

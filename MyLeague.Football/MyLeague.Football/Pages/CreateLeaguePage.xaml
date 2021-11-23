@@ -5,28 +5,33 @@
     xmlns:local="using:MyLeague.Football.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:MyLeague.Football.ViewModels"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="#0D2644">
 
-    <ScrollViewer Background="#0D2644">
+    <Page.DataContext>
+        <viewModels:CreateLeagueViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <ScrollViewer>
         <StackPanel Orientation="Vertical" Margin="32">
             <!-- Coach Section -->
             <TextBlock Text="Coach" Style="{StaticResource SubheaderTextBlockStyle}" />
-            <TextBox x:Name="Coach_FirstName" PlaceholderText="First Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
-            <TextBox x:Name="Coach_LastName" PlaceholderText="Last Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
+            <TextBox PlaceholderText="First Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
+            <TextBox PlaceholderText="Last Name" Width="300" HorizontalAlignment="Left" Margin="0 8" />
 
             <!-- Franchise Section -->
             <TextBlock Text="Franchise" Style="{StaticResource SubheaderTextBlockStyle}" />
-            <ComboBox ItemsSource="{Binding ViewModel.Franchises}" PlaceholderText="Pick a Franchise">
+            <ComboBox ItemsSource="{Binding Franchises}" PlaceholderText="Pick a Franchise">
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding Logo}" Width="40" Height="40" />
+                        <Image Source="{Binding Logo}" Width="45" Height="45" />
                         <TextBlock Text="{Binding FullName}" Margin="12 12 0 0" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox>
 
-            <Button Content="Create League" />
+            <Button Margin="0 16 0 0" Content="Create League" />
         </StackPanel>
     </ScrollViewer>
 </Page>

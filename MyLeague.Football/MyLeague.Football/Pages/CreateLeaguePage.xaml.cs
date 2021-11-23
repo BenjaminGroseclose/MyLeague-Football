@@ -28,9 +28,6 @@ namespace MyLeague.Football.Pages
         public CreateLeaguePage()
         {
             this.InitializeComponent();
-            this.DataContext = App.Current.Services.GetService(typeof(CreateLeagueViewModel));
         }
-
-        public CreateLeagueViewModel ViewModel => (CreateLeagueViewModel) DataContext;
     }
 }

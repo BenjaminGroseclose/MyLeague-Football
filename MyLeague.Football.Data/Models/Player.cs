@@ -77,7 +77,8 @@ namespace MyLeague.Football.Data.Models
             return currentDate.Year - this.DateOfBirth.Year;
         }
 
-        public string FullName() => $"{FirstName}, {LastName}";
+        [NotMapped]
+        public string FullName => $"{FirstName}, {LastName}";
 
         private Position DeterminePosition(string position)
         {
