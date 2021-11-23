@@ -7,6 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Frame x:Name="ContentFrame" />
+    <Grid>
+        <Frame x:Name="ContentFrame" />
+    </Grid>
 
 </Window>

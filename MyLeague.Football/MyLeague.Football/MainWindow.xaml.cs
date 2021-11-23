@@ -28,7 +28,6 @@ namespace MyLeague.Football
         public MainWindow()
         {
             this.InitializeComponent();
-            this.Title = "MyLeague Football - Create League";
             this.ContentFrame.Navigate(typeof(CreateLeaguePage));
         }
     }
