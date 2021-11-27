@@ -14,7 +14,7 @@ namespace MyLeague.Football.Data.Generators
 {
     public static class PlayerGenerator
     {
-        public static async Task CreateDefaultPlayer(MyLeagueFootballContext context)
+        public static PlayerGeneratorValues CreateDefaultPlayer()
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -31,6 +31,7 @@ namespace MyLeague.Football.Data.Generators
                 var initialPlayers = csv.GetRecords<InitialPlayerModel>();
 
                 List<Player> players = new List<Player>();
+                List<PlayerAttributes> attributes = new List<PlayerAttributes>();
 
                 Random rand = new Random();
 
@@ -43,16 +44,24 @@ namespace MyLeague.Football.Data.Generators
                 var collegesRaw = File.ReadAllText(Path.Combine($"{basePath}/Generators/Json", "colleges.json"));
                 var colleges = JsonSerializer.Deserialize<List<string>>(collegesRaw);
 
-                foreach (var player in initialPlayers)
+                int rowId = 1;
+
+                foreach (var initialPlayer in initialPlayers)
                 {
                     string firstName = firstNames.ElementAt(rand.Next(firstNames.Count));
                     string lastName = lastNames.ElementAt(rand.Next(lastNames.Count));
                     string college = colleges.ElementAt(rand.Next(colleges.Count));
-                    players.Add(new Player(firstName, lastName, college, player, mapper));
+
+                    PlayerAttributes playerAttributes = mapper.Map<PlayerAttributes>(initialPlayer);
+                    playerAttributes.Id = rowId;
+
+                    attributes.Add(playerAttributes);
+                    players.Add(new Player(rowId, firstName, lastName, college, initialPlayer, playerAttributes));
+
+                    rowId++;
                 }
 
-                context.Players.AddRange(players);
-                await context.SaveChangesAsync();
+                return new PlayerGeneratorValues(players, attributes);
             }
         }
     }

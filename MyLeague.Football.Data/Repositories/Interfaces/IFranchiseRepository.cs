@@ -1,7 +1,7 @@
 ﻿using MyLeague.Football.Data.Models;
 using System.Collections.Generic;
 
-namespace MyLeague.Football.Data.Repository.Interfaces
+namespace MyLeague.Football.Data.Repositories.Interfaces
 {
     public interface IFranchiseRepository
     {

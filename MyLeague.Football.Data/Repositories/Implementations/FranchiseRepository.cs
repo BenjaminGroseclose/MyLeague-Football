@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyLeague.Football.Data.Models;
-using MyLeague.Football.Data.Repository.Interfaces;
+using MyLeague.Football.Data.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyLeague.Football.Data.Repository.Implementations
+namespace MyLeague.Football.Data.Repositories.Implementations
 {
     public class FranchiseRepository : IFranchiseRepository
     {
