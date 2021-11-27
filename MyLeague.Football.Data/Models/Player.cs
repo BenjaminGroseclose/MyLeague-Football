@@ -9,8 +9,9 @@ namespace MyLeague.Football.Data.Models
     public class Player
     {
         public Player() { }
-        public Player(string firstName, string lastName, string college, InitialPlayerModel initialPlayer, IMapper mapper)
+        public Player(int id, string firstName, string lastName, string college, InitialPlayerModel initialPlayer, PlayerAttributes playerAttributes)
         {
+            this.Id = id;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.DateOfBirth = DateTime.Parse(initialPlayer.DateOfBirth);
@@ -19,7 +20,10 @@ namespace MyLeague.Football.Data.Models
             this.FranchiseId = initialPlayer.TeamId;
             this.Experience = initialPlayer.Experience;
             this.JerseyNumber = initialPlayer.JerseyNumber;
-            this.PlayerAttributes = mapper.Map<PlayerAttributes>(initialPlayer);
+            this.PlayerAttributeId = playerAttributes.Id;
+
+            // TODO:
+            this.ContractId = null;
         }
 
         [Key]
@@ -56,13 +60,12 @@ namespace MyLeague.Football.Data.Models
         public int Experience { get; set; }
         
         public int? FranchiseId { get; set; }
-
-        [ForeignKey("FranchiseId")]
-        public Franchise Franchise { get; set; }
+        public Franchise? Franchise { get; set; }
 
         public int JerseyNumber { get; set; }
 
-        public Contract Contract { get; set; }
+        public int? ContractId { get; set; }
+        public Contract? Contract { get; set; }
 
         public int PlayerAttributeId { get; set; }
 
@@ -77,7 +80,8 @@ namespace MyLeague.Football.Data.Models
             return currentDate.Year - this.DateOfBirth.Year;
         }
 
-        public string FullName() => $"{FirstName}, {LastName}";
+        [NotMapped]
+        public string FullName => $"{FirstName}, {LastName}";
 
         private Position DeterminePosition(string position)
         {
