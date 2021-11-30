@@ -65,9 +65,7 @@ namespace MyLeague.Football.ViewModels
 
             this.ShowErrors = Visibility.Collapsed;
 
-            await this.leagueService.CreateLeague(this.CoachFirstName,
-                                            this.CoachLastName,
-                                            this.SelectedFranchise);
+            await this.leagueService.CreateLeague(this.CoachFirstName, this.CoachLastName, this.SelectedFranchise);
 
             Application.Current.MainWindow = new GameWindow();
             Application.Current.MainWindow.Show();

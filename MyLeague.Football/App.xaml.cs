@@ -17,7 +17,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows;
 
 namespace MyLeague.Football
 {
@@ -71,9 +70,7 @@ namespace MyLeague.Football
             // Repositories
             services.AddTransient<IFranchiseRepository, FranchiseRepository>();
             services.AddTransient<ILeagueRepository, LeagueRepository>();
-
-            // ViewModels
-
+            services.AddTransient<IScheduleRepository, ScheduleRepository>();
 
             // APIs
             services.AddRefitClient<ISportsDataAPI>()

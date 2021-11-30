@@ -1,15 +1,8 @@
 ﻿using Moq;
 using MyLeague.Football.Data.API;
-using MyLeague.Football.Data.Generators;
-using MyLeague.Football.Data.Models;
 using MyLeague.Football.Data.Repositories.Interfaces;
 using MyLeague.Football.Services.Implementations;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyLeague.Football.Tests
 {
@@ -20,6 +13,7 @@ namespace MyLeague.Football.Tests
         Mock<IFranchiseRepository> franchiseRepository;
         Mock<ILeagueRepository> leagueRepository;
         Mock<ISportsDataAPI> sportsDateAPI;
+        Mock<IScheduleRepository> scheduleRepository;
 
         [SetUp]
         public void Setup()
@@ -27,8 +21,9 @@ namespace MyLeague.Football.Tests
             this.franchiseRepository = new Mock<IFranchiseRepository>();
             this.leagueRepository = new Mock<ILeagueRepository>();
             this.sportsDateAPI = new Mock<ISportsDataAPI>();
+            this.scheduleRepository = new Mock<IScheduleRepository>();
 
-            this.sut = new LeagueService(this.franchiseRepository.Object, this.leagueRepository.Object, this.sportsDateAPI.Object);
+            this.sut = new LeagueService(this.franchiseRepository.Object, this.leagueRepository.Object, this.sportsDateAPI.Object, this.scheduleRepository.Object);
         }
 
         /*

@@ -1,10 +1,8 @@
-﻿using MyLeague.Football.Data.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MyLeague.Football.Data.Models;
 using MyLeague.Football.Data.Repositories.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyLeague.Football.Data.Repositories.Implementations
 {
@@ -21,6 +19,18 @@ namespace MyLeague.Football.Data.Repositories.Implementations
         {
             this.dbContext.Leagues.Add(league);
             this.dbContext.SaveChanges();
+        }
+
+        public League GetLeague(int id)
+        {
+            League league = this.dbContext.Leagues.Include(x => x.ChoosenFranchise).FirstOrDefault(x => x.Id == id);
+
+            if (league == null)
+            {
+                throw new Exception($"Unable to find league with id: {id}");
+            }
+
+            return league;
         }
 
         public void UpdateLeague(League league)

@@ -3,5 +3,11 @@
     public class Constants
     {
         public const string BYE_ABBREVATION = "BYE";
+
+        public class NavigationItems
+        {
+            public const string HOME = "Home";
+            public const string SCHEDULE = "Schedule";
+        }
     }
 }
