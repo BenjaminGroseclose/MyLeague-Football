@@ -1,0 +1,333 @@
+[
+  {
+    "HomeTeamId": 6,
+    "AwayTeamId": 11,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 14,
+    "AwayTeamId": 13,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 3,
+    "AwayTeamId": 29,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 2,
+    "AwayTeamId": 31,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 19,
+    "AwayTeamId": 15,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 30,
+    "AwayTeamId": 7,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 10,
+    "AwayTeamId": 28,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 26,
+    "AwayTeamId": 8,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 21,
+    "AwayTeamId": 18,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 32,
+    "AwayTeamId": 17,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 9,
+    "AwayTeamId": 5,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 22,
+    "AwayTeamId": 12,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 27,
+    "AwayTeamId": 20,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 16,
+    "AwayTeamId": 4,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 24,
+    "AwayTeamId": 1,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 23,
+    "AwayTeamId": 25,
+    "WeekNumber": 1
+  },
+  {
+    "HomeTeamId": 26,
+    "AwayTeamId": 16,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 1,
+    "AwayTeamId": 2,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 5,
+    "AwayTeamId": 32,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 10,
+    "AwayTeamId": 24,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 12,
+    "AwayTeamId": 3,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 18,
+    "AwayTeamId": 22,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 13,
+    "AwayTeamId": 15,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 29,
+    "AwayTeamId": 23,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 21,
+    "AwayTeamId": 27,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 17,
+    "AwayTeamId": 4,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 7,
+    "AwayTeamId": 31,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 6,
+    "AwayTeamId": 14,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 8,
+    "AwayTeamId": 11,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 28,
+    "AwayTeamId": 30,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 25,
+    "AwayTeamId": 9,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 20,
+    "AwayTeamId": 19,
+    "WeekNumber": 2
+  },
+  {
+    "HomeTeamId": 32,
+    "AwayTeamId": 21,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 3,
+    "AwayTeamId": 26,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 5,
+    "AwayTeamId": 1,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 19,
+    "AwayTeamId": 25,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 30,
+    "AwayTeamId": 10,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 9,
+    "AwayTeamId": 8,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 22,
+    "AwayTeamId": 27,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 16,
+    "AwayTeamId": 14,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 29,
+    "AwayTeamId": 2,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 17,
+    "AwayTeamId": 7,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 4,
+    "AwayTeamId": 18,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 23,
+    "AwayTeamId": 12,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 24,
+    "AwayTeamId": 6,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 31,
+    "AwayTeamId": 28,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 15,
+    "AwayTeamId": 20,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 11,
+    "AwayTeamId": 13,
+    "WeekNumber": 3
+  },
+  {
+    "HomeTeamId": 2,
+    "AwayTeamId": 17,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 14,
+    "AwayTeamId": 26,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 3,
+    "AwayTeamId": 32,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 1,
+    "AwayTeamId": 19,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 11,
+    "AwayTeamId": 21,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 12,
+    "AwayTeamId": 10,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 31,
+    "AwayTeamId": 5,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 27,
+    "AwayTeamId": 16,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 18,
+    "AwayTeamId": 30,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 13,
+    "AwayTeamId": 9,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 24,
+    "AwayTeamId": 7,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 15,
+    "AwayTeamId": 28,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 4,
+    "AwayTeamId": 25,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 20,
+    "AwayTeamId": 29,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 22,
+    "AwayTeamId": 6,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 8,
+    "AwayTeamId": 23,
+    "WeekNumber": 4
+  },
+  {
+    "HomeTeamId": 28,
+    "AwayTeamId": 24,
+    "WeekNumber": 5
+  }
+  ,
+  {
+    "HomeTeamId": 28,
+    "AwayTeamId": 24,
+    "WeekNumber": 5
+  }
+]

@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyLeague.Football.Data.Models
 {
@@ -17,6 +14,12 @@ namespace MyLeague.Football.Data.Models
 
         [ForeignKey("ChoosenFranchiseId")]
         public Franchise ChoosenFranchise { get; set; }
+
+        public string CoachFirstName { get; set; }
+
+        public string CoachLastName { get; set; }
+
+        public IEnumerable<ScheduleWeek> Schedule { get; set; }
 
         // TODO: Add other settings
     }

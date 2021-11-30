@@ -28,6 +28,7 @@ namespace MyLeague.Football.Data.Models
             this.SecondaryColor = secondaryColor;
             this.Conference = conference;
             this.Division = division;
+            this.IsComputer = true;
         }
 
         [Key]
@@ -80,12 +81,18 @@ namespace MyLeague.Football.Data.Models
         /// </summary>
         [NotMapped]
         public string FullName => $"{Region} {Name}";
+
+        public void SetAsPlayer()
+        {
+            this.IsComputer = false;
+        }
     }
 
     public enum Conference
     {
         AFC,
-        NFC
+        NFC,
+        NONE
     }
 
     public enum Division
@@ -93,6 +100,7 @@ namespace MyLeague.Football.Data.Models
         NORTH, 
         EAST,
         SOUTH,
-        WEST
+        WEST,
+        NONE
     }
 }

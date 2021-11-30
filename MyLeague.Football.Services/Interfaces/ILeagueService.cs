@@ -9,6 +9,9 @@ namespace MyLeague.Football.Services.Interfaces
 {
     public interface ILeagueService
     {
-        void CreateLeague(string coachFirstName, string coachLastName, Franchise franchise);
+        Task CreateLeague(string coachFirstName, string coachLastName, Franchise franchise);
+
+        // TODO:
+        // IEnumerable<ScheduleWeek> GenerateSchedule(IEnumerable<Franchise> franchises, int season);
     }
 }
