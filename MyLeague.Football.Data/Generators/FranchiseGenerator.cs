@@ -36,7 +36,7 @@ namespace MyLeague.Football.Data.Generators
                 new Franchise(20, "Green Bay", "Packers", "GB", $"{basePath}/Generators/TeamLogos/green-bay-packers.png", "203731", "FFB612", Conference.NFC, Division.NORTH),
                 new Franchise(21, "Carolina", "Panthers", "CAR", $"{basePath}/Generators/TeamLogos/carolina-panthers.png", "0085CA", "000000", Conference.NFC, Division.SOUTH),
                 new Franchise(22, "New England", "Patriots", "NE", $"{basePath}/Generators/TeamLogos/new-england-patriots.png", "002244", "C60C30", Conference.AFC, Division.EAST),
-                new Franchise(23, "Las Vegas", "Raiders", "OAK", $"{basePath}/Generators/TeamLogos/oakland-raiders.png", "A5ACAF", "000000", Conference.AFC, Division.WEST),
+                new Franchise(23, "Las Vegas", "Raiders", "LV", $"{basePath}/Generators/TeamLogos/oakland-raiders.png", "A5ACAF", "000000", Conference.AFC, Division.WEST),
                 new Franchise(24, "Los Angeles", "Rams", "LAR", $"{basePath}/Generators/TeamLogos/los-angeles-rams.png", "002244", "B3995D", Conference.NFC, Division.WEST),
                 new Franchise(25, "Baltimore", "Ravens", "BAL", $"{basePath}/Generators/TeamLogos/baltimore-ravens.png", "241773", "9E7C0C", Conference.AFC, Division.NORTH),
                 new Franchise(26, "Washington", "Football Team", "WAS", $"{basePath}/Generators/TeamLogos/washington-football-team.png", "773141", "FFB612", Conference.NFC, Division.EAST),
@@ -45,7 +45,8 @@ namespace MyLeague.Football.Data.Generators
                 new Franchise(29, "Pittsburgh", "Steelers", "PIT", $"{basePath}/Generators/TeamLogos/pittsburgh-steelers.png", "000000", "FFB612", Conference.AFC, Division.NORTH),
                 new Franchise(30, "Tennessee", "Titans", "TEN", $"{basePath}/Generators/TeamLogos/tennessee-titans.png", "002244", "4B92DB", Conference.AFC, Division.SOUTH),
                 new Franchise(31, "Minnesota", "Vikings", "MIN", $"{basePath}/Generators/TeamLogos/minnesota-vikings.png", "4F2683", "FFC62F", Conference.NFC, Division.NORTH),
-                new Franchise(32, "Houston", "Texans", "HOU", $"{basePath}/Generators/TeamLogos/houston-texans.png", "03202F", "A71930", Conference.AFC, Division.SOUTH)
+                new Franchise(32, "Houston", "Texans", "HOU", $"{basePath}/Generators/TeamLogos/houston-texans.png", "03202F", "A71930", Conference.AFC, Division.SOUTH),
+                new Franchise(1000, "Bye", "Week", "BYE", $"{basePath}/Generators/TeamLogos/nfl.png", "808080", "808080", Conference.NONE, Division.NONE)
             };
 
             return franchises;

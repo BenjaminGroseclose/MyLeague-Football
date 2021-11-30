@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyLeague.Football.Core;
 using MyLeague.Football.Data.Models;
 using MyLeague.Football.Data.Repositories.Interfaces;
 using System;
@@ -18,15 +19,29 @@ namespace MyLeague.Football.Data.Repositories.Implementations
             this.context = context;
         }
 
-        public IEnumerable<Franchise> GetAll(bool includePlayer)
+        public IEnumerable<Franchise> GetAll(bool includePlayer, bool removeByeWeek)
         {
             if (includePlayer)
             {
-                return this.context.Franchises.Include(x => x.Players).ToList();
+                if (removeByeWeek)
+                {
+                    return this.context.Franchises.Include(x => x.Players).Where(x => !Constants.BYE_ABBREVATION.Equals(x.Abbrevation)).ToList();
+                }
+                else
+                {
+                    return this.context.Franchises.Include(x => x.Players).ToList();
+                }
             }
             else
             {
-                return this.context.Franchises.ToList();
+                if (removeByeWeek)
+                {
+                    return this.context.Franchises.Where(x => !Constants.BYE_ABBREVATION.Equals(x.Abbrevation)).ToList();
+                }
+                else
+                {
+                    return this.context.Franchises.ToList();
+                }
             }
 
         }
@@ -36,9 +51,25 @@ namespace MyLeague.Football.Data.Repositories.Implementations
             throw new NotImplementedException();
         }
 
-        public Franchise Update(Franchise franchise)
+        public Franchise SetAsPlayer(int id)
         {
-            throw new NotImplementedException();
+            Franchise franchiseToUpdate = this.context.Franchises.Find(id);
+
+            if (franchiseToUpdate == null)
+            {
+                throw new ArgumentNullException($"No franchise with id: {id} found");
+            }
+
+            franchiseToUpdate.SetAsPlayer();
+
+            var rows = this.context.SaveChanges();
+
+            if (rows != 1)
+            {
+                throw new Exception($"Unexpected number of rows ({rows}) update");
+            }
+
+            return franchiseToUpdate;
         }
     }
 }

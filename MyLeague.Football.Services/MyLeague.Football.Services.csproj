@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyLeague.Football.Core\MyLeague.Football.Core.csproj" />
     <ProjectReference Include="..\MyLeague.Football.Data\MyLeague.Football.Data.csproj" />
   </ItemGroup>
 

@@ -2,11 +2,13 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using MyLeague.Football.Data;
+using MyLeague.Football.Data.API;
 using MyLeague.Football.Data.Models;
 using MyLeague.Football.Data.Repositories.Implementations;
 using MyLeague.Football.Data.Repositories.Interfaces;
 using MyLeague.Football.Services.Implementations;
 using MyLeague.Football.Services.Interfaces;
+using Refit;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,6 +16,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows;
 
 namespace MyLeague.Football
@@ -53,7 +56,7 @@ namespace MyLeague.Football
 
         private void ConfigureServices()
         {
-            var services = new ServiceCollection();
+            IServiceCollection services = new ServiceCollection();
 
             //File.Create(path);
 
@@ -68,8 +71,13 @@ namespace MyLeague.Football
             // Repositories
             services.AddTransient<IFranchiseRepository, FranchiseRepository>();
             services.AddTransient<ILeagueRepository, LeagueRepository>();
+
             // ViewModels
-            
+
+
+            // APIs
+            services.AddRefitClient<ISportsDataAPI>()
+                    .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://api.sportsdata.io/v3/nfl"));
 
             Ioc.Default.ConfigureServices(services.BuildServiceProvider());
         }

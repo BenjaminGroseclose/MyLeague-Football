@@ -2,12 +2,9 @@
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
 using MyLeague.Football.Data.Models;
-using MyLeague.Football.Data.Repository.Interfaces;
+using MyLeague.Football.Data.Repositories.Interfaces;
 using MyLeague.Football.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -20,9 +17,9 @@ namespace MyLeague.Football.ViewModels
         private readonly ILeagueService leagueService = Ioc.Default.GetService<ILeagueService>();
         public CreateLeagueViewModel()
         {
-            this.Franchises = this.franchiseRepository.GetAll(true);
+            this.Franchises = this.franchiseRepository.GetAll(false, true);
             this.ShowErrors = Visibility.Collapsed;
-            this.CreateLeaugeCommand = new RelayCommand(CreateLeague);
+            this.CreateLeaugeCommand = new AsyncRelayCommand(CreateLeague);
         }
 
         public ICommand CreateLeaugeCommand { get; }
@@ -58,7 +55,7 @@ namespace MyLeague.Football.ViewModels
             set => SetProperty(ref showErrors, value);
         }
 
-        private void CreateLeague()
+        private async Task CreateLeague()
         {
             if (!this.IsValidSubmit())
             {
@@ -68,9 +65,19 @@ namespace MyLeague.Football.ViewModels
 
             this.ShowErrors = Visibility.Collapsed;
 
-            this.leagueService.CreateLeague(this.CoachFirstName,
+            await this.leagueService.CreateLeague(this.CoachFirstName,
                                             this.CoachLastName,
                                             this.SelectedFranchise);
+
+            Application.Current.MainWindow = new GameWindow();
+            Application.Current.MainWindow.Show();
+
+            Window window = Application.Current.Windows[0];
+
+            if (window != null)
+            {
+                window.Close();
+            }
         }
 
         private bool IsValidSubmit()

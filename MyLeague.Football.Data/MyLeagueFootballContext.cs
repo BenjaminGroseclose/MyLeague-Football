@@ -47,5 +47,6 @@ namespace MyLeague.Football.Data
         public DbSet<Player> Players { get; set; }
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<PlayerAttributes> PlayerAttributes { get; set; }
+        public DbSet<ScheduleWeek> ScheduleWeeks { get; set; }
     }
 }
