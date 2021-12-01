@@ -24,5 +24,15 @@ namespace MyLeague.Football.Pages
         {
             InitializeComponent();
         }
+
+        private void WeekComboBox_DropDownOpened(object sender, EventArgs e)
+        {
+            this.WeekComboBox.Foreground = this.WeekComboBox.TryFindResource("MaterialDesignLightForeground") as SolidColorBrush;
+        }
+
+        private void WeekComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            this.WeekComboBox.Foreground = this.WeekComboBox.TryFindResource("MaterialDesignDarkForeground") as SolidColorBrush;
+        }
     }
 }

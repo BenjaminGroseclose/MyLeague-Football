@@ -8,7 +8,7 @@
       xmlns:local="clr-namespace:MyLeague.Football.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Background="#0D2644">
+      Background="{StaticResource MaterialDesignDarkBackground}">
 
     <Page.DataContext>
         <viewModels:CreateLeagueViewModel x:Name="ViewModel" />
@@ -31,7 +31,10 @@
             <!-- Franchise Section -->
             <TextBlock Foreground="{StaticResource MaterialDesignDarkForeground}" Margin="0 16 0 16" Text="Franchise" Style="{StaticResource MaterialDesignHeadline5TextBlock}" />
             <ComboBox ItemsSource="{Binding Franchises, Mode=OneTime}"
+                      x:Name="FranchiseComboBox"
                       SelectedItem="{Binding SelectedFranchise, Mode=TwoWay}"
+                      DropDownClosed="ComboBox_DropDownClosed"
+                      DropDownOpened="ComboBox_DropDownOpened"
                       materialDesign:HintAssist.HelperText="Pick a Franchise">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>

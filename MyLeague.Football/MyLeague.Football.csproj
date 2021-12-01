@@ -22,4 +22,8 @@
     <ProjectReference Include="..\MyLeague.Football.Services\MyLeague.Football.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Styles\" />
+  </ItemGroup>
+
 </Project>

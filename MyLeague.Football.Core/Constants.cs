@@ -7,7 +7,8 @@
         public class NavigationItems
         {
             public const string HOME = "Home";
-            public const string SCHEDULE = "Schedule";
+            public const string SCHEDULE = "League Schedule";
+            public const string TEAM_SCHEDULE = "Team Schedules";
         }
     }
 }

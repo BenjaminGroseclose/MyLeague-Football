@@ -17,15 +17,22 @@
     <ScrollViewer>
         <StackPanel Margin="16" Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Week:" VerticalAlignment="Center" Margin="0 0 8 0" 
-                           Foreground="{StaticResource MaterialDesignDarkForeground}"
-                           Style="{StaticResource MaterialDesignBody2TextBlock}" />
                 <ComboBox ItemsSource="{Binding AllWeeks}"
-                          SelectedItem="{Binding SelectedWeek}" 
+                          SelectedItem="{Binding SelectedWeek}"
+                          materialDesign:HintAssist.HelperText="Select a Week"
+                          Foreground="{StaticResource MaterialDesignDarkForeground}"
                           Width="100"
+                          x:Name="WeekComboBox"
+                          DropDownOpened="WeekComboBox_DropDownOpened"
+                          DropDownClosed="WeekComboBox_DropDownClosed"
                           HorizontalAlignment="Left" />
             </StackPanel>
-            <ListView ItemsSource="{Binding ScheduleThisWeek}">
+            <ListView ItemsSource="{Binding ScheduleThisWeek}" Margin="0 16 0 0">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="IsEnabled" Value="False"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="{x:Type dateTypes:ScheduleWeek}">
                         <StackPanel Orientation="Horizontal">

@@ -37,6 +37,7 @@ namespace MyLeague.Football
                 throw new Exception("Unable to parse sender as button");
             }
 
+            // TODO: Schedule Navigation should be a sub menu flow
             switch (button.Content)
             {
                 case Constants.NavigationItems.HOME:
@@ -49,6 +50,12 @@ namespace MyLeague.Football
                     if (this.ContentFrame.Content.GetType() != typeof(SchedulePage))
                     {
                         this.ContentFrame.Navigate(new SchedulePage());
+                    }
+                    break;
+                case Constants.NavigationItems.TEAM_SCHEDULE:
+                    if (this.ContentFrame.Content.GetType() != typeof(TeamSchedulePage))
+                    {
+                        this.ContentFrame.Navigate(new TeamSchedulePage());
                     }
                     break;
             }
