@@ -15,18 +15,20 @@ namespace MyLeague.Football.Services.Implementations
 {
     public class LeagueService : ILeagueService
     {
-        private int errorCount = 0;
         private readonly IFranchiseRepository franchiseRepository;
         private readonly ILeagueRepository leagueRepository;
         private readonly ISportsDataAPI sportsDataAPI;
+        private readonly IScheduleRepository scheduleRepository;
 
         public LeagueService(IFranchiseRepository franchiseRepository,
                              ILeagueRepository leagueRepository,
-                             ISportsDataAPI sportsDataAPI)
+                             ISportsDataAPI sportsDataAPI,
+                             IScheduleRepository scheduleRepository)
         {
             this.franchiseRepository = franchiseRepository;
             this.leagueRepository = leagueRepository;
             this.sportsDataAPI = sportsDataAPI;
+            this.scheduleRepository = scheduleRepository;
         }
 
         public async Task CreateLeague(string coachFirstName, string coachLastName, Franchise franchise)
@@ -37,6 +39,10 @@ namespace MyLeague.Football.Services.Implementations
 
                 var schedule = this.MapToScheduleWeek(sportsDataSchedule, 2021);
 
+                this.franchiseRepository.SetAsPlayer(franchise.Id);
+
+                this.scheduleRepository.SaveSchedule(schedule);
+
                 this.leagueRepository.CreateLeague(new League
                 {
                     Id = 1,
@@ -44,10 +50,9 @@ namespace MyLeague.Football.Services.Implementations
                     LeagueDate = new DateTime(2021, 8, 16),
                     CoachFirstName = coachFirstName,
                     CoachLastName = coachLastName,
-                    Schedule = schedule
+                    CurrentSeason = 2021,
+                    CurrentWeek = 1
                 });
-
-                this.franchiseRepository.SetAsPlayer(franchise.Id);
 
                 return;
             }

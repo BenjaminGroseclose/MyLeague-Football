@@ -4,14 +4,73 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyLeague.Football"
+        xmlns:viewModels="clr-namespace:MyLeague.Football.ViewModels"
         mc:Ignorable="d"
-        Title="MyLeague Football" Height="450" Width="800">
+        Title="MyLeague Football" Height="600" Width="1000"
+        Background="{StaticResource MaterialDesignDarkBackground}">
 
-    <Grid >
+    <Window.DataContext>
+        <viewModels:GameWindowViewModel />
+    </Window.DataContext>
 
-        <ScrollViewer>
-                <Frame x:Name="ContentFrame"></Frame>
-        </ScrollViewer>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!-- TODO: Center the 'vs' -->
+        <Border BorderThickness="0 0 0 3" BorderBrush="White" Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid Margin="8 8 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock Text="{Binding CoachName}" 
+                           Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                           Foreground="{StaticResource MaterialDesignDarkForeground}"
+                           Grid.Column="0"/>
+
+                <Image Source="{Binding Logo}" Width="35" Height="35" Grid.Column="1" />
+                <TextBlock Text="{Binding FranchiseFullName}"
+                           Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                           Foreground="{StaticResource MaterialDesignDarkForeground}"
+                           Grid.Column="2" />
+
+                <TextBlock Text="vs"
+                           TextAlignment="Center"
+                           Style="{StaticResource MaterialDesignBody1TextBlock}"
+                           Foreground="{StaticResource MaterialDesignDarkForeground}"
+                           Grid.Column="3" TextWrapping="Wrap"/>
+
+                <Image Source="{Binding OpponentLogo}" Width="35" Height="35" Grid.Column="4" />
+                <TextBlock Text="{Binding OpponentFullName}"
+                           Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                           Foreground="{StaticResource MaterialDesignDarkForeground}" 
+                           Grid.Column="5"/>
+
+            </Grid>
+        </Border>
+
+        <Border BorderThickness="0 0 3 0" BorderBrush="White" Grid.Row="1" Grid.Column="0">
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <Button Content="Home" Click="NavigationButton" />
+                <Button Content="Team Schedules" Click="NavigationButton" />
+                <Button Content="League Schedule" Click="NavigationButton" />
+            </StackPanel>
+        </Border>
+
+        <Frame Grid.Row="1" Grid.Column="1" x:Name="ContentFrame" NavigationUIVisibility="Hidden" />
 
     </Grid>
 

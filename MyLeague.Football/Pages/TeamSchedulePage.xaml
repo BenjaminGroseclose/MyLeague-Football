@@ -1,0 +1,90 @@
+﻿<Page x:Class="MyLeague.Football.Pages.TeamSchedulePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:viewModels="clr-namespace:MyLeague.Football.ViewModels"
+      xmlns:dateTypes="clr-namespace:MyLeague.Football.Data.Models;assembly=MyLeague.Football.Data"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:MyLeague.Football.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <Page.DataContext>
+        <viewModels:TeamScheduleViewModel />
+    </Page.DataContext>
+
+    <ScrollViewer>
+        <StackPanel Margin="16" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox ItemsSource="{Binding Franchises}"
+                          x:Name="FranchiseComboBox"
+                          materialDesign:HintAssist.HelperText="Select a Franchise"
+                          SelectedItem="{Binding SelectedFranchise}"
+                          Foreground="{StaticResource MaterialDesignDarkForeground}"
+                          Width="100"
+                          DropDownClosed="FranchiseComboBox_DropDownClosed"
+                          DropDownOpened="FranchiseComboBox_DropDownOpened"
+                          HorizontalAlignment="Left">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding FullName}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <ListView ItemsSource="{Binding FranchiseSchedule}" Margin="0 16 0 0">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="IsEnabled" Value="False"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type dateTypes:ScheduleWeek}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition MinWidth="230"/>
+                                <ColumnDefinition Width="75" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                
+                            <TextBlock Text="{Binding Week}"
+                                       VerticalAlignment="Center"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="0"/>
+                            <TextBlock Text="{Binding DateOfGame, StringFormat='dddd, dd MMMM yyyy'}"
+                                       VerticalAlignment="Center"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="1"/>
+                            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                <Image Source="{Binding AwayTeam.Logo}" Width="45" Height="45" />
+                                <TextBlock Text="{Binding AwayTeam.FullName}"
+                                            VerticalAlignment="Center"
+                                            Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                            Style="{StaticResource MaterialDesignBody2TextBlock}" />
+                            </StackPanel>
+                            <TextBlock Text="@"
+                                       Grid.Column="3"
+                                       VerticalAlignment="Center"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}" />
+                            <StackPanel Grid.Column="4" Orientation="Horizontal">
+                                <Image Source="{Binding HomeTeam.Logo}" Width="45" Height="45" />
+                                <TextBlock Text="{Binding HomeTeam.FullName}"
+                                               VerticalAlignment="Center"
+                                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                               Style="{StaticResource MaterialDesignBody2TextBlock}" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

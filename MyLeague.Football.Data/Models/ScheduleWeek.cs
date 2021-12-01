@@ -8,9 +8,7 @@ namespace MyLeague.Football.Data.Models
         public ScheduleWeek() { }
         public ScheduleWeek(Franchise homeTeam, Franchise awayTeam, int season, int week, DateTime? dateOfGame)
         {
-            this.HomeTeamId = homeTeam.Id;
             this.HomeTeam = homeTeam;
-            this.AwayTeamId = awayTeam.Id;
             this.AwayTeam = awayTeam;
             this.Season = season;
             this.Week = week;
@@ -23,10 +21,7 @@ namespace MyLeague.Football.Data.Models
 
         [Key]
         public int Id { get; set; }
-        public int HomeTeamId { get; set; }
         public Franchise HomeTeam { get; set; }
-
-        public int AwayTeamId { get; set; }
         public Franchise AwayTeam { get; set; }
         public DateTime? DateOfGame { get; set; }
 

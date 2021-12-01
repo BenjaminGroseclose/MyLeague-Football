@@ -17,12 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyLeague.Football.Core\MyLeague.Football.Core.csproj" />
     <ProjectReference Include="..\MyLeague.Football.Data\MyLeague.Football.Data.csproj" />
     <ProjectReference Include="..\MyLeague.Football.Services\MyLeague.Football.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Folder Include="Styles\" />
   </ItemGroup>
 
 </Project>

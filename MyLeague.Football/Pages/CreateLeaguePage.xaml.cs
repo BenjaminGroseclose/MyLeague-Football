@@ -25,5 +25,15 @@ namespace MyLeague.Football.Pages
         {
             InitializeComponent();
         }
+
+        private void ComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            this.FranchiseComboBox.Foreground = this.FranchiseComboBox.TryFindResource("MaterialDesignDarkForeground") as SolidColorBrush;
+        }
+
+        private void ComboBox_DropDownOpened(object sender, EventArgs e)
+        {
+            this.FranchiseComboBox.Foreground = this.FranchiseComboBox.TryFindResource("MaterialDesignLightForeground") as SolidColorBrush;
+        }
     }
 }
