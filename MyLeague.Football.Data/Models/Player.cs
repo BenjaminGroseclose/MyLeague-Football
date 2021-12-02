@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MyLeague.Football.Data.Generators;
+﻿using MyLeague.Football.Data.Generators;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -58,7 +57,7 @@ namespace MyLeague.Football.Data.Models
         /// Gets or sets the date the player was drafted
         /// </summary>
         public int Experience { get; set; }
-        
+
         public int? FranchiseId { get; set; }
         public Franchise? Franchise { get; set; }
 
@@ -85,7 +84,7 @@ namespace MyLeague.Football.Data.Models
 
         private Position DeterminePosition(string position)
         {
-            switch(position)
+            switch (position)
             {
                 case "QB": return Position.QB;
                 case "RB": return Position.RB;
@@ -119,6 +118,7 @@ namespace MyLeague.Football.Data.Models
 /// </summary>
 public enum Position
 {
+    ALL,
     QB,
     RB,
     FB,

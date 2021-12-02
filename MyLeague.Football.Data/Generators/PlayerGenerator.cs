@@ -6,9 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace MyLeague.Football.Data.Generators
 {
@@ -18,7 +16,14 @@ namespace MyLeague.Football.Data.Generators
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<InitialPlayerModel, PlayerAttributes>();
+                cfg.CreateMap<InitialPlayerModel, PlayerAttributes>()
+                   .ForMember(dest => dest.DeepBall, act => act.MapFrom(src => src.ThrowAccuracyDeep))
+                   .ForMember(dest => dest.ShortAccuracy, act => act.MapFrom(src => src.ThrowAccuracyShort))
+                   .ForMember(dest => dest.ThrowOnRun, act => act.MapFrom(src => src.ThrowOnTheRun))
+                   .ForMember(dest => dest.PowerMove, act => act.MapFrom(src => src.PowerMoves))
+                   .ForMember(dest => dest.FinesseMove, act => act.MapFrom(src => src.FinesseMoves))
+                   .ForMember(dest => dest.ImpactBlock, act => act.MapFrom(src => src.ImpactBlocking))
+                   .ForMember(dest => dest.RouteRunning, act => act.MapFrom(src => (src.DeepRouteRunning + src.MediumRouteRunning + src.ShortRouteRunning) / 3));
             });
 
             var mapper = new Mapper(config);

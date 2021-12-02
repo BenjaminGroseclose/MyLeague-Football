@@ -97,7 +97,7 @@ namespace MyLeague.Football.Data.Models
 
     public enum Division
     {
-        NORTH, 
+        NORTH,
         EAST,
         SOUTH,
         WEST,

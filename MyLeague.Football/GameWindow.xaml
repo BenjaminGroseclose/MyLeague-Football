@@ -65,6 +65,7 @@
         <Border BorderThickness="0 0 3 0" BorderBrush="White" Grid.Row="1" Grid.Column="0">
             <StackPanel Grid.Row="1" Grid.Column="0">
                 <Button Content="Home" Click="NavigationButton" />
+                <Button Content="Rosters" Click="NavigationButton" />
                 <Button Content="Team Schedules" Click="NavigationButton" />
                 <Button Content="League Schedule" Click="NavigationButton" />
             </StackPanel>

@@ -35,7 +35,8 @@
                       SelectedItem="{Binding SelectedFranchise, Mode=TwoWay}"
                       DropDownClosed="ComboBox_DropDownClosed"
                       DropDownOpened="ComboBox_DropDownOpened"
-                      materialDesign:HintAssist.HelperText="Pick a Franchise">
+                      materialDesign:HintAssist.HelperText="Pick a Franchise"
+                      Foreground="{StaticResource MaterialDesignDarkForeground}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -48,6 +49,7 @@
 
             <StackPanel Orientation="Vertical" Margin="0 32 0 0">
                 <TextBlock Text="Please confirm all fields have appropriate values."
+                           Margin="0 0 0 8"
                            Visibility="{Binding ShowErrors}"
                            Foreground="Red" />
                 <Button Style="{StaticResource MaterialDesignOutlinedLightButton}"

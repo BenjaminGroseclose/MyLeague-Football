@@ -1,12 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyLeague.Football.Core;
+﻿using MyLeague.Football.Core;
 using MyLeague.Football.Data.Models;
 using MyLeague.Football.Data.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyLeague.Football.Data.Repositories.Implementations
 {
@@ -19,31 +16,16 @@ namespace MyLeague.Football.Data.Repositories.Implementations
             this.context = context;
         }
 
-        public IEnumerable<Franchise> GetAll(bool includePlayer, bool removeByeWeek)
+        public IEnumerable<Franchise> GetAll(bool removeByeWeek = true)
         {
-            if (includePlayer)
+            if (removeByeWeek)
             {
-                if (removeByeWeek)
-                {
-                    return this.context.Franchises.Include(x => x.Players).Where(x => !Constants.BYE_ABBREVATION.Equals(x.Abbrevation)).ToList();
-                }
-                else
-                {
-                    return this.context.Franchises.Include(x => x.Players).ToList();
-                }
+                return this.context.Franchises.Where(x => !Constants.BYE_ABBREVATION.Equals(x.Abbrevation)).ToList();
             }
             else
             {
-                if (removeByeWeek)
-                {
-                    return this.context.Franchises.Where(x => !Constants.BYE_ABBREVATION.Equals(x.Abbrevation)).ToList();
-                }
-                else
-                {
-                    return this.context.Franchises.ToList();
-                }
+                return this.context.Franchises.ToList();
             }
-
         }
 
         public Franchise GetById()

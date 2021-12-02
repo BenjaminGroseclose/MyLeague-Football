@@ -9,6 +9,7 @@
             public const string HOME = "Home";
             public const string SCHEDULE = "League Schedule";
             public const string TEAM_SCHEDULE = "Team Schedules";
+            public const string ROSTER = "Rosters";
         }
     }
 }

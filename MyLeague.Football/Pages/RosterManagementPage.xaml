@@ -1,0 +1,432 @@
+﻿<Page x:Class="MyLeague.Football.Pages.RosterManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:viewModels="clr-namespace:MyLeague.Football.ViewModels"
+      xmlns:dateTypes="clr-namespace:MyLeague.Football.Data.Models;assembly=MyLeague.Football.Data"
+      xmlns:local="clr-namespace:MyLeague.Football.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RosterManagementPage">
+
+    <Page.DataContext>
+        <viewModels:RosterManagementViewModel />
+    </Page.DataContext>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Visible">
+        <StackPanel Margin="16" Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+
+                <ComboBox ItemsSource="{Binding Franchises}"
+                              Grid.Column="0"
+                              x:Name="FranchiseComboBox"
+                              materialDesign:HintAssist.HelperText="Select a Franchise"
+                              SelectedItem="{Binding SelectedFranchise}"
+                              Foreground="{StaticResource MaterialDesignDarkForeground}"
+                              DropDownClosed="FranchiseComboBox_DropDownClosed"
+                              DropDownOpened="FranchiseComboBox_DropDownOpened">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding FullName}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox ItemsSource="{Binding Positions}"
+                          Grid.Column="2" Margin="24 0 0 0"
+                          x:Name="PositionComboBox"
+                          materialDesign:HintAssist.HelperText="Select a Position"
+                          SelectedItem="{Binding SelectedPosition}"
+                          Foreground="{StaticResource MaterialDesignDarkForeground}"
+                          DropDownClosed="PositionComboBox_DropDownClosed"
+                          DropDownOpened="PositionComboBox_DropDownOpened" />
+            </Grid>
+            <Grid Margin="0 32 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="#" Margin="12 0 0 0"
+                           Foreground="{StaticResource MaterialDesignDarkForeground}"
+                           Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                           Grid.Column="0"/>
+
+                <TextBlock Text="Position"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="1" />
+
+                <TextBlock Text="Name"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="2" />
+
+                <TextBlock Text="Overall"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="3" />
+
+                <TextBlock Text="Speed"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="4" />
+
+                <TextBlock Text="Acceleration"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="5" />
+
+                <TextBlock Text="Agility"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="6" />
+
+                <TextBlock Text="Awareness"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="7" />
+
+                <TextBlock Text="Stamina"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="8" />
+
+                <TextBlock Text="Tackle"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="9" />
+
+                <TextBlock Text="Toughness"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="10" />
+
+                <TextBlock Text="Hit Power"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="11" />
+
+                <TextBlock Text="Block Shedding"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="12" />
+
+                <TextBlock Text="Play Recognition"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="13" />
+
+                <TextBlock Text="Man Coverage"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="14" />
+
+                <TextBlock Text="Zone Coverage"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="15" />
+
+                <TextBlock Text="Catching"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="16" />
+
+                <TextBlock Text="Route"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="17" />
+
+                <TextBlock Text="Release"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="18" />
+
+                <TextBlock Text="Carrying"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="19" />
+
+                <TextBlock Text="Trucking"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="20" />
+
+                <TextBlock Text="Elusive"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="21" />
+
+                <TextBlock Text="Throw Power"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="22" />
+
+                <TextBlock Text="Accuracy"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="23" />
+
+                <TextBlock Text="Throw on Run"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="24" />
+
+                <TextBlock Text="Break Sack"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="25" />
+
+                <TextBlock Text="Run Block"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="26" />
+
+                <TextBlock Text="Pass Block"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="27" />
+
+                <TextBlock Text="Kick Power"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="28" />
+
+                <TextBlock Text="Kick Accuracy"
+                               Foreground="{StaticResource MaterialDesignDarkForeground}"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               Grid.Column="29" />
+
+            </Grid>
+            <!-- TODO Include sort by column option -->
+            <ListView ItemsSource="{Binding DisplayPlayers}" Margin="0 16 0 0">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type dateTypes:Player}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding JerseyNumber}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="0"/>
+
+                            <TextBlock Text="{Binding Position}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="1" />
+
+                            <TextBlock Text="{Binding FullName}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="2" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Overall}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="3" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Speed}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="4" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Acceleration}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="5" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Agility}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="6" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Awareness}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="7" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Stamina}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="8" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Tackle}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="9" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Toughness}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="10" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.HitPower}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="11" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.BlockShedding}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="12" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.PlayRecognition}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="13" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.ManCoverage}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="14" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.ZoneCoverage}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="15" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Catching}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="16" />
+
+                            <!-- TODO: Look in why this is always zero -->
+                            <TextBlock Text="{Binding PlayerAttributes.RouteRunning}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="17" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Release}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="18" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Carrying}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="19" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Trucking}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="20" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.Elusiveness}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="21" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.ThrowPower}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="22" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.AverageAccuracy}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="23" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.ThrowOnRun}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="24" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.BreakSack}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="25" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.RunBlock}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="26" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.PassBlock}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="27" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.KickPower}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="28" />
+
+                            <TextBlock Text="{Binding PlayerAttributes.KickAccuracy}"
+                                       Foreground="{StaticResource MaterialDesignDarkForeground}"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                       Grid.Column="29" />
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+    

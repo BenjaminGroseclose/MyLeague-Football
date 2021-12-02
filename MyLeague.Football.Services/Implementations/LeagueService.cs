@@ -3,12 +3,10 @@ using MyLeague.Football.Data.API;
 using MyLeague.Football.Data.API.Models;
 using MyLeague.Football.Data.Models;
 using MyLeague.Football.Data.Repositories.Interfaces;
-using MyLeague.Football.Services.Exceptions;
 using MyLeague.Football.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MyLeague.Football.Services.Implementations
@@ -70,10 +68,10 @@ namespace MyLeague.Football.Services.Implementations
 
         private IEnumerable<ScheduleWeek> MapToScheduleWeek(IEnumerable<SportsDataSchedule> sportsDataSchedule, int season)
         {
-            IEnumerable<Franchise> franchises = this.franchiseRepository.GetAll(false, false);
+            IEnumerable<Franchise> franchises = this.franchiseRepository.GetAll(false);
             List<ScheduleWeek> weeks = new List<ScheduleWeek>();
 
-            foreach(var sportsDataGame in sportsDataSchedule)
+            foreach (var sportsDataGame in sportsDataSchedule)
             {
                 try
                 {
