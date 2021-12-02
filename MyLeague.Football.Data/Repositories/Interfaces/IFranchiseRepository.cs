@@ -5,7 +5,7 @@ namespace MyLeague.Football.Data.Repositories.Interfaces
 {
     public interface IFranchiseRepository
     {
-        IEnumerable<Franchise> GetAll(bool includePlayer, bool removeByeWeek);
+        IEnumerable<Franchise> GetAll(bool removeByeWeek = true);
 
         Franchise GetById();
 

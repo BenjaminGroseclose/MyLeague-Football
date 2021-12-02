@@ -22,10 +22,8 @@
                           materialDesign:HintAssist.HelperText="Select a Franchise"
                           SelectedItem="{Binding SelectedFranchise}"
                           Foreground="{StaticResource MaterialDesignDarkForeground}"
-                          Width="100"
                           DropDownClosed="FranchiseComboBox_DropDownClosed"
-                          DropDownOpened="FranchiseComboBox_DropDownOpened"
-                          HorizontalAlignment="Left">
+                          DropDownOpened="FranchiseComboBox_DropDownOpened">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

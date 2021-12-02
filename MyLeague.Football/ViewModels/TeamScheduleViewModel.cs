@@ -1,13 +1,9 @@
-﻿using MaterialDesignThemes.Wpf;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using MyLeague.Football.Data.Models;
 using MyLeague.Football.Data.Repositories.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyLeague.Football.ViewModels
 {
@@ -17,16 +13,17 @@ namespace MyLeague.Football.ViewModels
         private readonly IScheduleRepository scheduleRepository = Ioc.Default.GetService<IScheduleRepository>();
         private readonly IFranchiseRepository franchiseRepository = Ioc.Default.GetService<IFranchiseRepository>();
         private readonly IEnumerable<ScheduleWeek> fullSchedule;
+        private readonly League league;
 
         public TeamScheduleViewModel()
         {
-            var league = this.leagueRepository.GetLeague(1);
+            this.league = this.leagueRepository.GetLeague(1);
             this.fullSchedule = this.scheduleRepository.GetScheduleBySeason(league.CurrentSeason);
 
-            this.FranchiseSchedule = this.fullSchedule.Where(x => x.HomeTeam.Id == league.ChoosenFranchise.Id || x.AwayTeam.Id == league.ChoosenFranchise.Id )
+            this.FranchiseSchedule = this.fullSchedule.Where(x => x.HomeTeam.Id == league.ChoosenFranchise.Id || x.AwayTeam.Id == league.ChoosenFranchise.Id)
                                                       .OrderBy(x => x.Week);
 
-            this.Franchises = this.franchiseRepository.GetAll(false, true);
+            this.Franchises = this.franchiseRepository.GetAll().OrderBy(x => x.FullName);
             this.SelectedFranchise = league.ChoosenFranchise;
         }
 
@@ -55,6 +52,11 @@ namespace MyLeague.Football.ViewModels
                 SetProperty(ref selectedFranchise, value);
                 this.FranchiseSchedule = this.fullSchedule.Where(x => x.HomeTeam.Id == value.Id || x.AwayTeam.Id == value.Id).OrderBy(x => x.Week);
             }
+        }
+
+        public int GetPlayerAge(Player player)
+        {
+            return this.league.LeagueDate.Year - player.DateOfBirth.Year;
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyLeague.Football.Data.API.Models
+﻿namespace MyLeague.Football.Data.API.Models
 {
     public class SportsDataSchedule
     {
@@ -21,7 +15,7 @@ namespace MyLeague.Football.Data.API.Models
         public int? StadiumID { get; set; }
         public bool? Canceled { get; set; }
         public decimal? GeoLat { get; set; }
-        public int? ForecastTempLow  { get; set; }
+        public int? ForecastTempLow { get; set; }
         public int? ForecastTempHigh { get; set; }
     }
 }

@@ -1,5 +1,5 @@
-﻿using MyLeague.Football.Data.Generators;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyLeague.Football.Data.Models
 {
@@ -52,5 +52,11 @@ namespace MyLeague.Football.Data.Models
         public int KickReturn { get; set; }
         public int KickPower { get; set; }
         public int KickAccuracy { get; set; }
+
+        [NotMapped]
+        public int AverageAccuracy 
+        {
+            get => (this.DeepBall + this.MediumAccuracy + ShortAccuracy) / 3;
+        }
     }
 }

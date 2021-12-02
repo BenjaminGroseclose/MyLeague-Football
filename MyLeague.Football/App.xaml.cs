@@ -10,12 +10,6 @@ using MyLeague.Football.Services.Implementations;
 using MyLeague.Football.Services.Interfaces;
 using Refit;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace MyLeague.Football
@@ -50,7 +44,7 @@ namespace MyLeague.Football
             {
                 StartupUri = new Uri("MainWindow.xaml", UriKind.Relative);
             }
-            
+
         }
 
         private void ConfigureServices()
@@ -71,6 +65,7 @@ namespace MyLeague.Football
             services.AddTransient<IFranchiseRepository, FranchiseRepository>();
             services.AddTransient<ILeagueRepository, LeagueRepository>();
             services.AddTransient<IScheduleRepository, ScheduleRepository>();
+            services.AddTransient<IPlayerRepository, PlayerRepository>();
 
             // APIs
             services.AddRefitClient<ISportsDataAPI>()

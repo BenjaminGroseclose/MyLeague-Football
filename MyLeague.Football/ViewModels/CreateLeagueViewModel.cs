@@ -5,6 +5,7 @@ using MyLeague.Football.Data.Models;
 using MyLeague.Football.Data.Repositories.Interfaces;
 using MyLeague.Football.Services.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -17,7 +18,7 @@ namespace MyLeague.Football.ViewModels
         private readonly ILeagueService leagueService = Ioc.Default.GetService<ILeagueService>();
         public CreateLeagueViewModel()
         {
-            this.Franchises = this.franchiseRepository.GetAll(false, true);
+            this.Franchises = this.franchiseRepository.GetAll().OrderBy(x => x.FullName);
             this.ShowErrors = Visibility.Collapsed;
             this.CreateLeaugeCommand = new AsyncRelayCommand(CreateLeague);
         }
