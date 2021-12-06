@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyLeague.Football"
         xmlns:viewModels="clr-namespace:MyLeague.Football.ViewModels"
         mc:Ignorable="d"
-        Title="MyLeague Football" Height="600" Width="1000"
+        Title="MyLeague Football" Height="800" Width="1200"
         Background="{StaticResource MaterialDesignDarkBackground}">
 
     <Window.DataContext>
@@ -68,6 +68,7 @@
                 <Button Content="Rosters" Click="NavigationButton" />
                 <Button Content="Team Schedules" Click="NavigationButton" />
                 <Button Content="League Schedule" Click="NavigationButton" />
+                <Button Content="Trade Manager" Click="NavigationButton" />
             </StackPanel>
         </Border>
 

@@ -39,6 +39,17 @@ namespace MyLeague.Football.Data
             modelBuilder.Entity<Player>()
                 .HasData(playerData.Players);
 
+            modelBuilder.Entity<DraftPick>()
+                .HasOne(x => x.Owner)
+                .WithMany(x => x.DraftPicks)
+                .HasForeignKey(x => x.OwnerId);
+
+            modelBuilder.Entity<DraftPick>()
+                .HasOne(x => x.OriginalFranchise);
+
+            modelBuilder.Entity<DraftPick>()
+                .HasData(FranchiseGenerator.GetDefaultDraftPicks());
+
             base.OnModelCreating(modelBuilder);
         }
 
@@ -48,5 +59,6 @@ namespace MyLeague.Football.Data
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<PlayerAttributes> PlayerAttributes { get; set; }
         public DbSet<ScheduleWeek> ScheduleWeeks { get; set; }
+        public DbSet<DraftPick> DraftPicks { get; set; }
     }
 }

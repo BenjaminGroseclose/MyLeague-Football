@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace MyLeague.Football.Data.Generators
 {
@@ -40,12 +41,6 @@ namespace MyLeague.Football.Data.Generators
 
                 Random rand = new Random();
 
-                var firstNamesRaw = File.ReadAllText(Path.Combine($"{basePath}/Generators/Json", "firstNames.json"));
-                var firstNames = JsonSerializer.Deserialize<List<string>>(firstNamesRaw);
-
-                var lastNamesRaw = File.ReadAllText(Path.Combine($"{basePath}/Generators/Json", "lastNames.json"));
-                var lastNames = JsonSerializer.Deserialize<List<string>>(lastNamesRaw);
-
                 var collegesRaw = File.ReadAllText(Path.Combine($"{basePath}/Generators/Json", "colleges.json"));
                 var colleges = JsonSerializer.Deserialize<List<string>>(collegesRaw);
 
@@ -53,21 +48,32 @@ namespace MyLeague.Football.Data.Generators
 
                 foreach (var initialPlayer in initialPlayers)
                 {
-                    string firstName = firstNames.ElementAt(rand.Next(firstNames.Count));
-                    string lastName = lastNames.ElementAt(rand.Next(lastNames.Count));
+                    var playerName = GetPlayersName(initialPlayer.PlayerName);
                     string college = colleges.ElementAt(rand.Next(colleges.Count));
 
                     PlayerAttributes playerAttributes = mapper.Map<PlayerAttributes>(initialPlayer);
                     playerAttributes.Id = rowId;
 
                     attributes.Add(playerAttributes);
-                    players.Add(new Player(rowId, firstName, lastName, college, initialPlayer, playerAttributes));
+                    players.Add(new Player(rowId, playerName.firstName, playerName.lastName, college, initialPlayer, playerAttributes));
 
                     rowId++;
                 }
 
                 return new PlayerGeneratorValues(players, attributes);
             }
+        }
+
+        public static (string firstName, string lastName) GetPlayersName(string intialGame)
+        {
+            Regex regex = new Regex(@"([A-Z][a-z]*)");
+
+            var matches = regex.Matches(intialGame);
+
+            string lastName = matches[0].Value;
+            string firstName = matches[1].Value;
+
+            return (firstName, lastName);
         }
     }
 }

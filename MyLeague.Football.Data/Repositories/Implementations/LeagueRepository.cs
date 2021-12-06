@@ -23,7 +23,7 @@ namespace MyLeague.Football.Data.Repositories.Implementations
 
         public League GetLeague(int id)
         {
-            League league = this.dbContext.Leagues.Include(x => x.ChoosenFranchise).FirstOrDefault(x => x.Id == id);
+            League league = this.dbContext.Leagues.Include(x => x.ChoosenFranchise).ThenInclude(x => x.DraftPicks).FirstOrDefault(x => x.Id == id);
 
             if (league == null)
             {

@@ -54,6 +54,14 @@ namespace MyLeague.Football
                         this.ContentFrame.Navigate(new RosterManagementPage());
                     }
                     break;
+                case Constants.NavigationItems.TRADE_MANAGER:
+                    if (this.ContentFrame.Content.GetType() != typeof(TradeManagerPage))
+                    {
+                        this.ContentFrame.Navigate(new TradeManagerPage());
+                    }
+                    break;
+                default:
+                    throw new Exception($"Unable to map: {button.Content} to a page");
             }
         }
     }

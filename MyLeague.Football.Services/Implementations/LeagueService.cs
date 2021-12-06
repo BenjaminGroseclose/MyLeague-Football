@@ -37,7 +37,7 @@ namespace MyLeague.Football.Services.Implementations
 
                 var schedule = this.MapToScheduleWeek(sportsDataSchedule, 2021);
 
-                this.franchiseRepository.SetAsPlayer(franchise.Id);
+                this.franchiseRepository.SetAsUser(franchise.Id);
 
                 this.scheduleRepository.SaveSchedule(schedule);
 
