@@ -3,6 +3,7 @@
     public class InitialPlayerModel
     {
         public int TeamId { get; set; }
+        public string PlayerName { get; set; }
         public string Position { get; set; }
         public int Awareness { get; set; }
         public int Overall { get; set; }

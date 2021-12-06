@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MyLeague.Football.Data.Generators;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,6 +7,8 @@ namespace MyLeague.Football.Data.Models
 {
     public class Franchise
     {
+        public Franchise() { }
+
         /// <summary>
         /// Used to create an inital franchise
         /// </summary>
@@ -74,7 +77,9 @@ namespace MyLeague.Football.Data.Models
 
         public Division Division { get; private set; }
 
-        public IEnumerable<Player> Players { get; private set; }
+        public IEnumerable<Player> Players { get; set; }
+
+        public List<DraftPick> DraftPicks { get; set; }
 
         /// <summary>
         /// Gets the full name of the franchise

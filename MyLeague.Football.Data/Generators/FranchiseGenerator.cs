@@ -51,5 +51,28 @@ namespace MyLeague.Football.Data.Generators
 
             return franchises;
         }
+
+        public static IEnumerable<DraftPick> GetDefaultDraftPicks()
+        {
+            List<DraftPick> draftPicks = new List<DraftPick>();
+
+            int rowId = 1;
+
+            for (int franchiseId = 1; franchiseId <= 32; franchiseId++)
+            {
+                for (int i = 2021; i < 2025; i++)
+                {
+                    draftPicks.Add(new DraftPick(rowId++, i, 1, franchiseId));
+                    draftPicks.Add(new DraftPick(rowId++, i, 2, franchiseId));
+                    draftPicks.Add(new DraftPick(rowId++, i, 3, franchiseId));
+                    draftPicks.Add(new DraftPick(rowId++, i, 4, franchiseId));
+                    draftPicks.Add(new DraftPick(rowId++, i, 5, franchiseId));
+                    draftPicks.Add(new DraftPick(rowId++, i, 6, franchiseId));
+                    draftPicks.Add(new DraftPick(rowId++, i, 7, franchiseId));
+                }
+            }
+
+            return draftPicks;
+        }
     }
 }

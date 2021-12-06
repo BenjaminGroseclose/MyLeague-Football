@@ -7,8 +7,10 @@ namespace MyLeague.Football.Data.Repositories.Interfaces
     {
         IEnumerable<Franchise> GetAll(bool removeByeWeek = true);
 
-        Franchise GetById();
+        Franchise GetById(int id);
 
-        Franchise SetAsPlayer(int id);
+        Franchise SetAsUser(int id);
+
+        void UpdateDraftPicks(int franchiseId, DraftPick draftPick);
     }
 }
