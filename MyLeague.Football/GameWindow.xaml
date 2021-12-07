@@ -33,6 +33,7 @@
                     <ColumnDefinition />
                     <ColumnDefinition Width="40" />
                     <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="125" />
                 </Grid.ColumnDefinitions>
 
 
@@ -58,6 +59,10 @@
                            Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                            Foreground="{StaticResource MaterialDesignDarkForeground}" 
                            Grid.Column="5"/>
+
+                <Button Content="Advance Week"
+                        Grid.Column="6"
+                        Command="{Binding AdvanceWeekCommad}" />
 
             </Grid>
         </Border>

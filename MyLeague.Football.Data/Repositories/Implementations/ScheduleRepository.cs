@@ -16,14 +16,14 @@ namespace MyLeague.Football.Data.Repositories.Implementations
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<ScheduleWeek> GetScheduleBySeason(int season)
+        public IEnumerable<WeekSchedule> GetScheduleBySeason(int season)
         {
-            return this.dbContext.ScheduleWeeks.Include(x => x.HomeTeam).Include(x => x.AwayTeam).Where(x => x.Season == season);
+            return this.dbContext.WeekSchedules.Include(x => x.HomeTeam).Include(x => x.AwayTeam).Where(x => x.Season == season);
         }
 
-        public void SaveSchedule(IEnumerable<ScheduleWeek> schedules)
+        public void SaveSchedule(IEnumerable<WeekSchedule> schedules)
         {
-            this.dbContext.AddRange(schedules);
+            this.dbContext.WeekSchedules.AddRange(schedules);
             var rows = this.dbContext.SaveChanges();
 
             if (rows != schedules.Count())
@@ -36,7 +36,15 @@ namespace MyLeague.Football.Data.Repositories.Implementations
 
         public void SaveScore(int id, int awayTeamScore, int homeTeamScore)
         {
-            throw new NotImplementedException();
+            var weekSchedule = this.dbContext.WeekSchedules.Find(id);
+
+            if (weekSchedule == null)
+            {
+                throw new ArgumentException($"Was not able to find a week schedule with id: {id}");
+            }
+
+            weekSchedule.ScoreGame(awayTeamScore, homeTeamScore);
+            this.dbContext.SaveChanges();
         }
     }
 }

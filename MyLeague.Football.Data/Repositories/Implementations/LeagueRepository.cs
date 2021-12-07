@@ -15,10 +15,12 @@ namespace MyLeague.Football.Data.Repositories.Implementations
             this.dbContext = dbContext;
         }
 
-        public void CreateLeague(League league)
+        public League CreateLeague(League league)
         {
             this.dbContext.Leagues.Add(league);
             this.dbContext.SaveChanges();
+
+            return league;
         }
 
         public League GetLeague(int id)
@@ -33,21 +35,20 @@ namespace MyLeague.Football.Data.Repositories.Implementations
             return league;
         }
 
-        public void UpdateLeague(League league)
+        public void UpdateLeague(int id, League league)
         {
-            var leagueToUpdate = this.dbContext.Leagues.Find(1);
+            var leagueToUpdate = this.dbContext.Leagues.Find(id);
 
-            if (leagueToUpdate != null)
+            if (leagueToUpdate == null)
             {
-                leagueToUpdate.ChoosenFranchise = league.ChoosenFranchise;
-                leagueToUpdate.LeagueDate = league.LeagueDate;
+                throw new ArgumentException($"Was not able to find a league with id: {id}");
+            }
 
-                this.dbContext.SaveChanges();
-            }
-            else
-            {
-                throw new ArgumentException("Was not able to find a league with PK of 1");
-            }
+            leagueToUpdate.CurrentSeason = league.CurrentSeason;
+            leagueToUpdate.CurrentWeek = league.CurrentWeek;
+            leagueToUpdate.LeagueDate = league.LeagueDate;
+
+            this.dbContext.SaveChanges();
         }
     }
 }

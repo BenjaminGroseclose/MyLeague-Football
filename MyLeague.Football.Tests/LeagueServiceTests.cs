@@ -14,6 +14,7 @@ namespace MyLeague.Football.Tests
         Mock<ILeagueRepository> leagueRepository;
         Mock<ISportsDataAPI> sportsDateAPI;
         Mock<IScheduleRepository> scheduleRepository;
+        Mock<IRecordsRepository> recordsRepository;
 
         [SetUp]
         public void Setup()
@@ -22,8 +23,9 @@ namespace MyLeague.Football.Tests
             this.leagueRepository = new Mock<ILeagueRepository>();
             this.sportsDateAPI = new Mock<ISportsDataAPI>();
             this.scheduleRepository = new Mock<IScheduleRepository>();
+            this.recordsRepository = new Mock<IRecordsRepository>();
 
-            this.sut = new LeagueService(this.franchiseRepository.Object, this.leagueRepository.Object, this.sportsDateAPI.Object, this.scheduleRepository.Object);
+            this.sut = new LeagueService(this.franchiseRepository.Object, this.leagueRepository.Object, this.sportsDateAPI.Object, this.scheduleRepository.Object, this.recordsRepository.Object);
         }
 
         /*

@@ -17,16 +17,19 @@ namespace MyLeague.Football.Services.Implementations
         private readonly ILeagueRepository leagueRepository;
         private readonly ISportsDataAPI sportsDataAPI;
         private readonly IScheduleRepository scheduleRepository;
+        private readonly IRecordsRepository recordsRepository;
 
         public LeagueService(IFranchiseRepository franchiseRepository,
                              ILeagueRepository leagueRepository,
                              ISportsDataAPI sportsDataAPI,
-                             IScheduleRepository scheduleRepository)
+                             IScheduleRepository scheduleRepository,
+                             IRecordsRepository recordsRepository)
         {
             this.franchiseRepository = franchiseRepository;
             this.leagueRepository = leagueRepository;
             this.sportsDataAPI = sportsDataAPI;
             this.scheduleRepository = scheduleRepository;
+            this.recordsRepository = recordsRepository;
         }
 
         public async Task CreateLeague(string coachFirstName, string coachLastName, Franchise franchise)
@@ -41,21 +44,15 @@ namespace MyLeague.Football.Services.Implementations
 
                 this.scheduleRepository.SaveSchedule(schedule);
 
-                this.leagueRepository.CreateLeague(new League
-                {
-                    Id = 1,
-                    ChoosenFranchise = franchise,
-                    LeagueDate = new DateTime(2021, 8, 16),
-                    CoachFirstName = coachFirstName,
-                    CoachLastName = coachLastName,
-                    CurrentSeason = 2021,
-                    CurrentWeek = 1
-                });
+                var league = this.leagueRepository.CreateLeague(new League (1, franchise, new DateTime(2021, 8, 16), coachFirstName, coachLastName, 2021, 1));
+
+                this.recordsRepository.CreateDefaultRecords(2021, league);
 
                 return;
             }
             catch (Exception ex)
             {
+                // TODO: Handle exceptions
                 if (ex != null)
                 {
 
@@ -66,10 +63,10 @@ namespace MyLeague.Football.Services.Implementations
 
         }
 
-        private IEnumerable<ScheduleWeek> MapToScheduleWeek(IEnumerable<SportsDataSchedule> sportsDataSchedule, int season)
+        private IEnumerable<WeekSchedule> MapToScheduleWeek(IEnumerable<SportsDataSchedule> sportsDataSchedule, int season)
         {
             IEnumerable<Franchise> franchises = this.franchiseRepository.GetAll(false);
-            List<ScheduleWeek> weeks = new List<ScheduleWeek>();
+            List<WeekSchedule> weeks = new List<WeekSchedule>();
 
             foreach (var sportsDataGame in sportsDataSchedule)
             {
@@ -89,7 +86,7 @@ namespace MyLeague.Football.Services.Implementations
                         dateOfGame = DateTime.Parse(sportsDataGame.Date);
                     }
 
-                    var week = new ScheduleWeek(homeTeam, awayTeam, season, sportsDataGame.Week, dateOfGame);
+                    var week = new WeekSchedule(homeTeam, awayTeam, season, sportsDataGame.Week, dateOfGame);
                     weeks.Add(week);
                 }
                 catch (Exception ex)

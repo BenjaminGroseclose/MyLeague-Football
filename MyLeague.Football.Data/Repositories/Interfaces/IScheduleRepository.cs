@@ -5,10 +5,10 @@ namespace MyLeague.Football.Data.Repositories.Interfaces
 {
     public interface IScheduleRepository
     {
-        IEnumerable<ScheduleWeek> GetScheduleBySeason(int season);
+        IEnumerable<WeekSchedule> GetScheduleBySeason(int season);
 
         void SaveScore(int id, int awayTeamScore, int homeTeamScore);
 
-        void SaveSchedule(IEnumerable<ScheduleWeek> schedules);
+        void SaveSchedule(IEnumerable<WeekSchedule> schedules);
     }
 }

@@ -33,7 +33,7 @@ namespace MyLeague.Football.Tests
             this.franchiseRepository = new Mock<IFranchiseRepository>();
             this.playerRepository = new Mock<IPlayerRepository>();
 
-            this.leagueRepository.Setup(x => x.GetLeague(1)).Returns(new League() { LeagueDate = this.leagueDate });
+            this.leagueRepository.Setup(x => x.GetLeague(1)).Returns(new League(1, new Franchise(), leagueDate, "Ben", "Tester", 2021, 1));
             this.playerRepository.Setup(x => x.UpdatePlayer(It.IsAny<int>(), It.IsAny<Player>())).Returns(new Player());
             this.franchiseRepository.Setup(x => x.UpdateDraftPicks(It.IsAny<int>(), It.IsAny<DraftPick>()));
 

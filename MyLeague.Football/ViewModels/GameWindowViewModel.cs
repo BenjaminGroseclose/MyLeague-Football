@@ -1,9 +1,12 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using Microsoft.Toolkit.Mvvm.Input;
 using MyLeague.Football.Data.Models;
 using MyLeague.Football.Data.Repositories.Interfaces;
+using MyLeague.Football.Services.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 
 namespace MyLeague.Football.ViewModels
 {
@@ -11,6 +14,7 @@ namespace MyLeague.Football.ViewModels
     {
         private readonly ILeagueRepository leagueRepository = Ioc.Default.GetService<ILeagueRepository>();
         private readonly IScheduleRepository scheduleRepository = Ioc.Default.GetService<IScheduleRepository>();
+        private readonly IGameService gameService = Ioc.Default.GetService<IGameService>();
 
         public GameWindowViewModel()
         {
@@ -21,7 +25,7 @@ namespace MyLeague.Football.ViewModels
 
             var schedule = this.scheduleRepository.GetScheduleBySeason(league.CurrentSeason);
 
-            IEnumerable<ScheduleWeek> currentWeek = schedule.Where(x => x.Week == league.CurrentWeek);
+            IEnumerable<WeekSchedule> currentWeek = schedule.Where(x => x.Week == league.CurrentWeek);
 
             var ourGame = currentWeek.First(x => x.HomeTeam.Id == league.ChoosenFranchise.Id || x.AwayTeam.Id == league.ChoosenFranchise.Id);
 
@@ -36,7 +40,10 @@ namespace MyLeague.Football.ViewModels
                 this.OpponentFullName = ourGame.HomeTeam.FullName;
             }
 
+            this.AdvanceWeekCommad = new RelayCommand(AdvanceWeek);
         }
+
+        public ICommand AdvanceWeekCommad;
 
         private string coachName;
 
@@ -76,6 +83,11 @@ namespace MyLeague.Football.ViewModels
         {
             get => opponentFullName;
             set => SetProperty(ref opponentFullName, value);
+        }
+
+        private void AdvanceWeek()
+        {
+            this.gameService.AdvanceWeek();
         }
     }
 }

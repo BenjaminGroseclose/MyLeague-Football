@@ -40,7 +40,7 @@
                     </Style>
                 </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
-                    <DataTemplate DataType="{x:Type dateTypes:ScheduleWeek}">
+                    <DataTemplate DataType="{x:Type dateTypes:WeekSchedule}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30" />

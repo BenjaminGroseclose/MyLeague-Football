@@ -61,6 +61,7 @@ namespace MyLeague.Football
             // Services
             services.AddTransient<ILeagueService, LeagueService>();
             services.AddTransient<ITradeService, TradeService>();
+            services.AddTransient<IGameService, GameService>();
 
             // Repositories
             services.AddTransient<IFranchiseRepository, FranchiseRepository>();

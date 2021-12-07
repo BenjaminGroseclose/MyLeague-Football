@@ -12,7 +12,7 @@ namespace MyLeague.Football.ViewModels
     {
         private readonly ILeagueRepository leagueRepository = Ioc.Default.GetService<ILeagueRepository>();
         private readonly IScheduleRepository scheduleRepository = Ioc.Default.GetService<IScheduleRepository>();
-        private readonly IEnumerable<ScheduleWeek> fullSchedule;
+        private readonly IEnumerable<WeekSchedule> fullSchedule;
 
         public ScheduleViewModel()
         {
@@ -34,8 +34,8 @@ namespace MyLeague.Football.ViewModels
             set => SetProperty(ref this.allWeeks, value);
         }
 
-        private IEnumerable<ScheduleWeek> scheduleThisWeek;
-        public IEnumerable<ScheduleWeek> ScheduleThisWeek
+        private IEnumerable<WeekSchedule> scheduleThisWeek;
+        public IEnumerable<WeekSchedule> ScheduleThisWeek
         {
             get => scheduleThisWeek;
             set => SetProperty(ref scheduleThisWeek, value);

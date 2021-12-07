@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyLeague.Football.Data.Models
 {
-    public class ScheduleWeek
+    public class WeekSchedule
     {
-        public ScheduleWeek() { }
-        public ScheduleWeek(Franchise homeTeam, Franchise awayTeam, int season, int week, DateTime? dateOfGame)
+        public WeekSchedule() { }
+        public WeekSchedule(Franchise homeTeam, Franchise awayTeam, int season, int week, DateTime? dateOfGame)
         {
             this.HomeTeam = homeTeam;
             this.AwayTeam = awayTeam;
@@ -39,7 +39,7 @@ namespace MyLeague.Football.Data.Models
 
         public int AwayTeamScore { get; private set; }
 
-        public void ScoreGame(int homeTeam, int awayTeam)
+        public void ScoreGame(int awayTeam, int homeTeam)
         {
             this.HomeTeamScore = homeTeam;
             this.AwayTeamScore = awayTeam;

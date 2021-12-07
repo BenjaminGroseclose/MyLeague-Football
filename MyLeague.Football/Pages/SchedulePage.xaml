@@ -34,7 +34,7 @@
                     </Style>
                 </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
-                    <DataTemplate DataType="{x:Type dateTypes:ScheduleWeek}">
+                    <DataTemplate DataType="{x:Type dateTypes:WeekSchedule}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding DateOfGame, StringFormat='dddd, dd MMMM yyyy'}"
                                        VerticalAlignment="Center"

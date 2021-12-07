@@ -5,7 +5,7 @@ namespace MyLeague.Football.Data.Repositories.Interfaces
     public interface ILeagueRepository
     {
         League GetLeague(int id);
-        void CreateLeague(League league);
-        void UpdateLeague(League league);
+        League CreateLeague(League league);
+        void UpdateLeague(int it, League league);
     }
 }
