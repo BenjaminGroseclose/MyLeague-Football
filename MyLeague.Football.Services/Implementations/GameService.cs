@@ -67,10 +67,40 @@ namespace MyLeague.Football.Services.Implementations
 
         public (int awayTeamScore, int homeTeamScore) PlayGame(Franchise awayTeam, Franchise homeTeam)
         {
+            int gameDifference = 0;
+
             int homeTeamOverall = this.EvaluateRoster(homeTeam);
             int awayTeamOverall = this.EvaluateRoster(awayTeam);
 
-            return (10, 17);
+            // Home team gets 3 points
+            gameDifference = gameDifference + 3;
+
+            gameDifference = gameDifference + (homeTeamOverall - awayTeamOverall);
+
+
+            /* game different
+             * 0 = tie
+             * > 0 = home team win
+             * < 0 = away team win
+             */
+
+            if (gameDifference == 0)
+            {
+                // Tie
+            }
+            else if (gameDifference > 0)
+            {
+                // Home team win
+            }
+            else
+            {
+                // Away team win
+            }
+        }
+
+        private (int awayTeamScore, int homeTeamScore) ScoreVariantions(int gameDifference)
+        {
+            var variations = this.DefaultGameVariantions();
         }
 
         /// <summary>
@@ -78,7 +108,77 @@ namespace MyLeague.Football.Services.Implementations
         /// </summary>
         private int EvaluateRoster(Franchise franchise)
         {
+            List<Player> starters = new List<Player>();
 
+            var positions = Enum.GetValues(typeof(Position)).Cast<Position>().ToList();
+
+            foreach(var position in positions)
+            {
+                switch (position)
+                {
+                    case Position.QB:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.QB).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.RB:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.RB).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.FB:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.FB).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.LT:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.LT).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.LG:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.LG).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.C:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.C).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.RG:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.RG).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.RT:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.RT).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.WR:
+                        starters.AddRange(franchise.Players.Where(x => x.Position == Position.WR).OrderBy(x => x.PlayerAttributes.Overall).Take(3));
+                        break;
+                    case Position.TE:
+                        starters.AddRange(franchise.Players.Where(x => x.Position == Position.TE).OrderBy(x => x.PlayerAttributes.Overall).Take(2));
+                        break;
+                    case Position.RE:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.RE).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.DT:
+                        starters.AddRange(franchise.Players.Where(x => x.Position == Position.DT).OrderBy(x => x.PlayerAttributes.Overall).Take(2));
+                        break;
+                    case Position.LE:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.LE).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.ROLB:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.ROLB).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.MLB:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.MLB).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.LOLB:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.LOLB).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.CB:
+                        starters.AddRange(franchise.Players.Where(x => x.Position == Position.CB).OrderBy(x => x.PlayerAttributes.Overall).Take(3));
+                        break;
+                    case Position.FS:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.FS).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                    case Position.SS:
+                        starters.Add(franchise.Players.Where(x => x.Position == Position.SS).OrderBy(x => x.PlayerAttributes.Overall).First());
+                        break;
+                }
+            }
+
+            int startersCount = starters.Count();
+
+            return starters.Sum(x => x.PlayerAttributes.Overall) / startersCount;
         }
     }
 }
